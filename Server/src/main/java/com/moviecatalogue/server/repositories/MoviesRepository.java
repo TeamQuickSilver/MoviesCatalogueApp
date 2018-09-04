@@ -1,7 +1,10 @@
 package com.moviecatalogue.server.repositories;
 
+import com.moviecatalogue.server.models.Movie;
+import com.moviecatalogue.server.repositories.base.BaseRepository;
 import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class MoviesRepository implements BaseRepository<Movie> {
@@ -23,6 +26,7 @@ public class MoviesRepository implements BaseRepository<Movie> {
 
     @Override
     public Movie add(Movie object) {
-        return movies.add(object);
+        movies.add(object);
+        return object;
     }
 }

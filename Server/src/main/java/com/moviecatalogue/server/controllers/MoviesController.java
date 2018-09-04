@@ -1,6 +1,7 @@
 package com.moviecatalogue.server.controllers;
 
 import com.moviecatalogue.server.models.Movie;
+import com.moviecatalogue.server.services.base.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
