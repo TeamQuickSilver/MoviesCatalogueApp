@@ -1,4 +1,4 @@
-package com.quicksilver.user.moviescatalogueapplication;
+package com.quicksilver.moviesapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.quicksilver.user.moviescatalogueapplication", appContext.getPackageName());
+        assertEquals("com.quicksilver.moviescatalogueapplication", appContext.getPackageName());
     }
 }
