@@ -1,4 +1,6 @@
 package com.quicksilver.moviesapp;
 
-public class AndroidApplication {
+import android.app.Application;
+
+public class AndroidApplication extends Application{
 }

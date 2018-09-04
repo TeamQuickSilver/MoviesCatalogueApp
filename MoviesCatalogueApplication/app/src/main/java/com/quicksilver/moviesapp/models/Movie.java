@@ -1,7 +1,5 @@
 package com.quicksilver.moviesapp.models;
 
-import java.util.List;
-
 public class Movie {
     public int id;
     public String name;
