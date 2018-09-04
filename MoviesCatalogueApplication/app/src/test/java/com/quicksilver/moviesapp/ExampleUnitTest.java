@@ -1,4 +1,4 @@
-package com.quicksilver.user.moviescatalogueapplication;
+package com.quicksilver.moviesapp;
 
 import org.junit.Test;
 
