@@ -1,4 +1,4 @@
-package com.quicksilver.moviesapp;
+package com.quicksilver.moviesapp.views;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

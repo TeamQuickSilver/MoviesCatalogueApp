@@ -3,7 +3,7 @@ package com.quicksilver.moviesapp.views.moviesList;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
-import com.quicksilver.moviesapp.BaseDrawerActivity;
+import com.quicksilver.moviesapp.views.BaseDrawerActivity;
 import com.quicksilver.moviesapp.R;
 
 public class MoviesListActivity extends BaseDrawerActivity {
