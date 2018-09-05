@@ -15,6 +15,8 @@ import com.quicksilver.moviesapp.models.Movie;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -29,13 +31,14 @@ public class MoviesListFragment extends Fragment implements MoviesListContracts.
     @BindView(R.id.progress_bar)
     ProgressBar mProgressBar;
 
-    private MoviesAdapter mMoviesAdapter;
     private GridLayoutManager mMoviesViewLayoutManager;
     private MoviesListContracts.Presenter mPresenter;
     private MoviesListContracts.Navigator mNavigator;
 
-    //Inject MoviesAdapter here!!!
+    @Inject
+    MoviesAdapter mMoviesAdapter;
 
+    @Inject
     public MoviesListFragment() {
         // Required empty public constructor
     }
@@ -49,7 +52,6 @@ public class MoviesListFragment extends Fragment implements MoviesListContracts.
 
         ButterKnife.bind(this, view);
 
-        mMoviesAdapter = new MoviesAdapter();
         mMoviesAdapter.setOnMovieClickListener(this);
         mRecyclerViewMovies.setAdapter(mMoviesAdapter);
 
