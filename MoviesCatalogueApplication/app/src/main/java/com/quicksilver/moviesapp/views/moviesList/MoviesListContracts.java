@@ -10,6 +10,8 @@ public interface MoviesListContracts {
 
         void showMovies(List<Movie> movies);
 
+        void setNavigator(Navigator navigator);
+
         void showLoading();
 
         void hideLoading();
@@ -27,7 +29,7 @@ public interface MoviesListContracts {
         void selectMovie(Movie movie);
     }
 
-    interface  Navigator {
+    interface Navigator {
         void navigateWith(Movie movie);
     }
 }

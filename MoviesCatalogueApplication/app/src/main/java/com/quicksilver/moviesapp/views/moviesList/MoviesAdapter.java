@@ -65,7 +65,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         mMovies.addAll(movies);
     }
 
-    public void setmOnMovieClickListener(onMovieClickListener mOnMovieClickListener) {
+    public void setOnMovieClickListener(onMovieClickListener mOnMovieClickListener) {
         this.mOnMovieClickListener = mOnMovieClickListener;
     }
 
