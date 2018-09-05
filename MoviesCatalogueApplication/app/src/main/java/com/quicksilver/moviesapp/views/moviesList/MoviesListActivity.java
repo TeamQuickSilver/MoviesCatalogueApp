@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
-import com.quicksilver.moviesapp.BaseDrawerActivity;
+import com.quicksilver.moviesapp.views.BaseDrawerActivity;
 import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.models.Movie;
 import com.quicksilver.moviesapp.views.movieDetails.MovieDetailsActivity;

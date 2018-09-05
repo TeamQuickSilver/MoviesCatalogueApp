@@ -24,7 +24,7 @@ public interface MoviesListContracts {
 
         void loadMovies();
 
-        void filterMovies(Movie movie);
+        void filterMovies(String pattern);
 
         void selectMovie(Movie movie);
     }
