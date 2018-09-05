@@ -1,6 +1,5 @@
 package com.quicksilver.moviesapp.views.movieList;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
