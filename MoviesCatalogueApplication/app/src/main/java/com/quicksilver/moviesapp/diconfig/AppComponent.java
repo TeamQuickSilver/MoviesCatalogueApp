@@ -11,7 +11,10 @@ import dagger.Component;
 import dagger.android.AndroidInjector;
 
 @Singleton
-@Component(modules = HttpModule.class)
+@Component(modules = {
+        HttpModule.class,
+        AsyncModule.class
+})
 public interface AppComponent extends AndroidInjector<AndroidApplication> {
     @Component.Builder
     interface Builder {
