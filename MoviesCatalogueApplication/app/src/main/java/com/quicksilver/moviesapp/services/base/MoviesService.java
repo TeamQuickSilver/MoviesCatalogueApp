@@ -10,7 +10,7 @@ public interface MoviesService {
 
     Movie getDetailById(int id) throws IOException;
 
-    List<Movie> getFilteredMovies(String pattern);
+    List<Movie> getFilteredMovies(String pattern) throws IOException;
 
-    Movie createMovie(Movie movie);
+    Movie createMovie(Movie movie) throws IOException;
 }
