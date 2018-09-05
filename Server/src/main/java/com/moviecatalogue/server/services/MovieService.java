@@ -19,16 +19,16 @@ public class MovieService implements BaseService<Movie> {
 
     @Override
     public List<Movie> getAll() {
-        return null;
+        return repository.getAll();
     }
 
     @Override
     public Movie getById(int id) {
-        return null;
+        return repository.getById(id);
     }
 
     @Override
     public Movie add(Movie object) {
-        return null;
+        return repository.add(object);
     }
 }

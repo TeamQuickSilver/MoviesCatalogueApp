@@ -17,6 +17,8 @@ public interface MoviesListContracts {
         void hideLoading();
 
         void showMovieDetails(Movie movie);
+
+        void showError(Throwable error);
     }
 
     interface Presenter {

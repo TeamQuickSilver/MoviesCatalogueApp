@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.models.Movie;
@@ -30,12 +31,13 @@ public class MoviesListFragment extends Fragment implements MoviesListContracts.
     @BindView(R.id.progress_bar)
     ProgressBar mProgressBar;
 
-    private GridLayoutManager mMoviesViewLayoutManager;
-    private MoviesListContracts.Presenter mPresenter;
     private MoviesListContracts.Navigator mNavigator;
 
     @Inject
     MoviesAdapter mMoviesAdapter;
+
+    private GridLayoutManager mMoviesViewLayoutManager;
+    private MoviesListContracts.Presenter mPresenter;
 
     @Inject
     public MoviesListFragment() {
@@ -101,6 +103,11 @@ public class MoviesListFragment extends Fragment implements MoviesListContracts.
     @Override
     public void showMovieDetails(Movie movie) {
         mNavigator.navigateWith(movie);
+    }
+
+    @Override
+    public void showError(Throwable error) {
+        Toast.makeText(getContext(), "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
     }
 
     @Override

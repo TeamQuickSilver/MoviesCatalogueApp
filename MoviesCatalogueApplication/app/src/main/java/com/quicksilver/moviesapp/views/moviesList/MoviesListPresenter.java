@@ -42,7 +42,7 @@ public class MoviesListPresenter implements MoviesListContracts.Presenter {
                 .subscribeOn(mSchedulerProvider.background())
                 .observeOn(mSchedulerProvider.ui())
                 .doFinally(mView::hideLoading)
-                .subscribe(this::presentMoviesTOView);
+                .subscribe(this::presentMoviesTOView, error -> mView.showError(error));
     }
 
     private void presentMoviesTOView(List<Movie> movies) {
@@ -61,7 +61,7 @@ public class MoviesListPresenter implements MoviesListContracts.Presenter {
                 .subscribeOn(mSchedulerProvider.background())
                 .observeOn(mSchedulerProvider.ui())
                 .doFinally(mView::hideLoading)
-                .subscribe(this::presentMoviesTOView);
+                .subscribe(this::presentMoviesTOView, error -> mView.showError(error));
     }
 
     @Override

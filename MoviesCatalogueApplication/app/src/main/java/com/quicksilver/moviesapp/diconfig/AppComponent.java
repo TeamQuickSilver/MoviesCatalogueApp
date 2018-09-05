@@ -18,8 +18,6 @@ import dagger.android.support.AndroidSupportInjectionModule;
         AppModule.class,
         HttpModule.class,
         AsyncModule.class,
-        MovieDetailsModule.class,
-        MoviesListModule.class,
         ParsersModule.class,
         ServicesModule.class,
         RepositoriesModule.class,
