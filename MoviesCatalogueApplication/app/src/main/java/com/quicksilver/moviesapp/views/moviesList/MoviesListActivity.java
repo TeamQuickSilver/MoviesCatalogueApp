@@ -18,7 +18,7 @@ public class MoviesListActivity extends BaseDrawerActivity implements MoviesList
     private Toolbar mToolbar;
 
     @Inject
-    private Fragment mMoviesListFragment;
+    Fragment mMoviesListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

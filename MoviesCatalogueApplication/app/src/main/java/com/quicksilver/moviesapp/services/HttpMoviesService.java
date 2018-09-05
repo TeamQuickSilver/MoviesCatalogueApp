@@ -23,4 +23,14 @@ public class HttpMoviesService implements MoviesService{
     public Movie getDetailById(int id) throws IOException {
         return mMoviesRepository.getById(id);
     }
+
+    @Override
+    public List<Movie> getFilteredMovies(String pattern) {
+        return null;
+    }
+
+    @Override
+    public Movie createMovie(Movie movie) {
+        return null;
+    }
 }
