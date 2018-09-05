@@ -2,12 +2,11 @@ package com.quicksilver.moviesapp.views.moviesList;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 
-import com.quicksilver.moviesapp.views.BaseDrawerActivity;
 import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.models.Movie;
+import com.quicksilver.moviesapp.views.BaseDrawerActivity;
 import com.quicksilver.moviesapp.views.movieDetails.MovieDetailsActivity;
 
 import javax.inject.Inject;
@@ -18,7 +17,10 @@ public class MoviesListActivity extends BaseDrawerActivity implements MoviesList
     private Toolbar mToolbar;
 
     @Inject
-    Fragment mMoviesListFragment;
+    MoviesListFragment mMoviesListFragment;
+
+    @Inject
+    MoviesListContracts.Presenter mMoviesPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

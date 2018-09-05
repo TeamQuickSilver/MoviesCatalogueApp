@@ -17,7 +17,7 @@ public class HttpModule {
     }
 
     @Provides
-    @Named("baseServerUrl")
+    @Named("serverUrl")
     public String baseServerUrl() {
         return Constants.BASE_SERVER_URL;
     }

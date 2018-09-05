@@ -6,6 +6,7 @@ import com.quicksilver.moviesapp.parsers.base.JsonParser;
 import com.quicksilver.moviesapp.repositories.HttpRepository;
 import com.quicksilver.moviesapp.repositories.base.Repository;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -15,7 +16,7 @@ import dagger.Provides;
 public class RepositoriesModule {
     @Provides
     @Singleton
-    public Repository<Movie> movieRepository(HttpRequester httpRequester, JsonParser<Movie> jsonParser, String serverUrl) {
+    public Repository<Movie> movieRepository(HttpRequester httpRequester, JsonParser<Movie> jsonParser, @Named("serverUrl") String serverUrl) {
         String url = serverUrl + "/movies";
         return new HttpRepository<>(httpRequester, jsonParser, url);
     }
