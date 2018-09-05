@@ -1,6 +1,8 @@
 package com.quicksilver.moviesapp.models;
 
-public class Movie {
+import java.io.Serializable;
+
+public class Movie implements Serializable {
     public int id;
     public String name;
     public String imageUrl;
