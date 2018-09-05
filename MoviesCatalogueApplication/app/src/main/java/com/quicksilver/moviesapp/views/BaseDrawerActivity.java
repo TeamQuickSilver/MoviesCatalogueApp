@@ -1,7 +1,6 @@
 package com.quicksilver.moviesapp.views;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
@@ -12,7 +11,9 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.quicksilver.moviesapp.views.moviesList.MoviesListActivity;
 
-public abstract class BaseDrawerActivity extends AppCompatActivity{
+import dagger.android.support.DaggerAppCompatActivity;
+
+public abstract class BaseDrawerActivity extends DaggerAppCompatActivity{
     private Toolbar mToolbar;
 
     public BaseDrawerActivity() {
