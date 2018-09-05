@@ -10,7 +10,7 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.quicksilver.moviesapp.views.movieList.MoviesListActivity;
+import com.quicksilver.moviesapp.views.moviesList.MoviesListActivity;
 
 public abstract class BaseDrawerActivity extends AppCompatActivity{
     private Toolbar mToolbar;

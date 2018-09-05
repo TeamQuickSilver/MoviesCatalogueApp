@@ -1,4 +1,4 @@
-package com.quicksilver.moviesapp.views.movieList;
+package com.quicksilver.moviesapp.views.moviesList;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
