@@ -6,16 +6,18 @@ public class Movie {
     private String imageUrl;
     private String cast;
     private String description;
+    public String categories;
 
     public Movie() {
     }
 
-    public Movie(int id, String name, String imageUrl, String cast, String description) {
+    public Movie(int id, String name, String imageUrl, String cast, String description, String categories) {
         this.id = id;
         this.name = name;
         this.imageUrl = imageUrl;
         this.cast = cast;
         this.description = description;
+        this.categories = categories;
     }
 
     public int getId() {

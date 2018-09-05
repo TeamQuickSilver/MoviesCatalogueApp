@@ -11,6 +11,8 @@ import com.quicksilver.moviesapp.views.movieDetails.MovieDetailsActivity;
 
 import javax.inject.Inject;
 
+import butterknife.ButterKnife;
+
 public class MoviesListActivity extends BaseDrawerActivity implements MoviesListContracts.Navigator {
 
     public static final long IDENTIFIER = 1;
@@ -20,6 +22,9 @@ public class MoviesListActivity extends BaseDrawerActivity implements MoviesList
     MoviesListFragment mMoviesListFragment;
 
     @Inject
+    MoviesListContracts.Presenter mSuperheroesListPresenter;
+
+    @Inject
     MoviesListContracts.Presenter mMoviesPresenter;
 
     @Override
@@ -27,7 +32,12 @@ public class MoviesListActivity extends BaseDrawerActivity implements MoviesList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies_list);
 
+        ButterKnife.bind(this);
+
         setSupportActionBar(getToolbar());
+
+        mMoviesListFragment.setNavigator(this);
+        mMoviesListFragment.setPresenter(mSuperheroesListPresenter);
 
         getSupportFragmentManager()
                 .beginTransaction()
