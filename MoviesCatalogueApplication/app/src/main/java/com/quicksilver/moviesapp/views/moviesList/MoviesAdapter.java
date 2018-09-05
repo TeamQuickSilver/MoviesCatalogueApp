@@ -15,15 +15,19 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
     private List<Movie> mMovies;
     private onMovieClickListener mOnMovieClickListener;
 
+    @Inject
     public MoviesAdapter() {
-        this.mMovies = new ArrayList<>();
+        mMovies = new ArrayList<>();
     }
 
     @NonNull
@@ -92,6 +96,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             mMovie = movie;
         }
 
+        @OnClick
         public void onClick() {
             mOnClickListener.onClick(mMovie);
         }
