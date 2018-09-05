@@ -18,4 +18,12 @@ public class Movie {
         this.cast = cast;
         this.description = description;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
 }
