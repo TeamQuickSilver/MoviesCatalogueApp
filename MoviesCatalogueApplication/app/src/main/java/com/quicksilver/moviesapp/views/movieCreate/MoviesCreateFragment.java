@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.quicksilver.moviesapp.R;
@@ -22,6 +24,7 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class MoviesCreateFragment extends Fragment implements MovieCreateContracts.View {
+//    private static final int PICK_IMAGE = 100;
     private MovieCreateContracts.Navigator mNavigator;
     private MovieCreateContracts.Presenter mPresenter;
 
@@ -30,6 +33,25 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
 
     @BindView(R.id.relative_layout)
     RelativeLayout mRelativeLayout;
+
+    @BindView(R.id.et_title)
+    TextView mTextViewTitle;
+
+    @BindView(R.id.et_cast)
+    TextView mTextViewCast;
+
+    @BindView(R.id.et_description)
+    TextView mTextViewDescription;
+
+    @BindView(R.id.et_category)
+    TextView mTextViewCategory;
+
+    @BindView(R.id.btn_wallpaper)
+    Button mButtonWallpaper;
+
+    @BindView(R.id.btn_create)
+    Button mButtonCreate;
+
 
     @Inject
     public MoviesCreateFragment() {
@@ -45,6 +67,8 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
 
         ButterKnife.bind(this, view);
 
+//        mButtonWallpaper.setOnClickListener(this);
+
         return view;
     }
 
@@ -59,10 +83,6 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
         mPresenter = presenter;
     }
 
-    @Override
-    public void showForm() {
-
-    }
 
     @Override
     public void showCreatedMovie(Movie movie) {
@@ -90,4 +110,15 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
     public void showError(Throwable error) {
         Toast.makeText(getContext(), "Error " + error.getMessage(), Toast.LENGTH_LONG).show();
     }
+
+
+//    @OnClick
+//    @Override
+//    public void onClick(View view) {
+//        Intent gallery = new Intent(
+//                Intent.ACTION_PICK,
+//                MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+//
+//        startActivityForResult(gallery, PICK_IMAGE);
+//    }
 }

@@ -22,7 +22,7 @@ public class MoviesRepository implements BaseRepository<Movie> {
                 "https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E5My00ZTliLWIzOTUtMTY4ZGI1YjdiNjk3XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg",
                 "Leonardo Di Caprio",
                 "No description", "No description"));
-        movies.add(new Movie(3, "GoodFella",
+        movies.add(new Movie(3, "GoodFellas",
                 "https://vignette.wikia.nocookie.net/cinemorgue/images/d/d6/Goodfellas-56dc074f56dd7.jpg/revision/latest?cb=20160830143345" ,
                 " Robert De Niro",
                 "No description", "No description"));

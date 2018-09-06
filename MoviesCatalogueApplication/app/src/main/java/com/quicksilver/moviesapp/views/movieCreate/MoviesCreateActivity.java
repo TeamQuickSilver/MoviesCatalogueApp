@@ -1,7 +1,6 @@
 package com.quicksilver.moviesapp.views.movieCreate;
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 
 import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.models.Movie;
@@ -9,9 +8,10 @@ import com.quicksilver.moviesapp.views.BaseDrawerActivity;
 
 import javax.inject.Inject;
 
+import butterknife.ButterKnife;
+
 public class MoviesCreateActivity extends BaseDrawerActivity implements MovieCreateContracts.Navigator{
     public static final int IDENTIFIER = 3;
-    private Toolbar mToolbar;
 
     @Inject
     MoviesCreateFragment mMoviesCreateFragment;
@@ -24,7 +24,9 @@ public class MoviesCreateActivity extends BaseDrawerActivity implements MovieCre
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies_create);
 
-        mToolbar = findViewById(R.id.drawer_toolbar);
+        ButterKnife.bind(this);
+
+        setSupportActionBar(getDrawerToolbar());
 
         mMoviesCreateFragment.setNavigator(this);
         mMoviesCreateFragment.setPresenter(mMoviesCreatePresenter);
@@ -38,11 +40,6 @@ public class MoviesCreateActivity extends BaseDrawerActivity implements MovieCre
     @Override
     protected int getIdentifier() {
         return IDENTIFIER;
-    }
-
-    @Override
-    protected Toolbar getDrawerToolbar() {
-        return mToolbar;
     }
 
     @Override

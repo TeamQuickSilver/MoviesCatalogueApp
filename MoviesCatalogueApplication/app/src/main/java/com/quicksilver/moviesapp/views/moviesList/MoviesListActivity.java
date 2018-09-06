@@ -2,7 +2,6 @@ package com.quicksilver.moviesapp.views.moviesList;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 
 import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.models.Movie;
@@ -22,9 +21,6 @@ public class MoviesListActivity extends BaseDrawerActivity implements MoviesList
 
     @Inject
     MoviesListContracts.Presenter mMoviesListPresenter;
-
-    @Inject
-    MoviesListContracts.Presenter mMoviesPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

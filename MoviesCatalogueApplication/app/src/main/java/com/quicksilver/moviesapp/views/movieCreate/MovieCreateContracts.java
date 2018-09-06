@@ -6,8 +6,6 @@ public interface MovieCreateContracts {
     interface View {
         void setPresenter(Presenter presenter);
 
-        void showForm();
-
         void showCreatedMovie(Movie movie);
 
         void showLoading();

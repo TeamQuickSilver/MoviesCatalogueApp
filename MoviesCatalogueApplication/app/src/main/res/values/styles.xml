@@ -5,4 +5,12 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="BigText">
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="MediumText">
+        <item name="android:textSize">17sp</item>
+    </style>
+
 </resources>
