@@ -7,12 +7,17 @@ import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.views.movieCreate.MoviesCreateActivity;
 import com.quicksilver.moviesapp.views.moviesList.MoviesListActivity;
 
+import butterknife.BindView;
 import dagger.android.support.DaggerAppCompatActivity;
 
-public abstract class BaseDrawerActivity extends DaggerAppCompatActivity{
+public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
+
+    @BindView(R.id.drawer_toolbar)
+    Toolbar mToolbar;
 
     public BaseDrawerActivity() {
     }
@@ -32,13 +37,13 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity{
 
         Drawer drawer = new DrawerBuilder()
                 .withActivity(this)
-                .withToolbar(getDrawerToolbar())
+                .withToolbar(mToolbar)
                 .addDrawerItems(
                         listMoviesItem,
                         new DividerDrawerItem(),
                         createMoviesItem
                 ).withOnDrawerItemClickListener((view, position, drawerItem) -> {
-                    int identifier = (int)drawerItem.getIdentifier();
+                    int identifier = (int) drawerItem.getIdentifier();
 
                     if (getIdentifier() == identifier) {
                         return false;
@@ -65,6 +70,8 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity{
             case MoviesCreateActivity.IDENTIFIER:
                 intent = new Intent(this, MoviesCreateActivity.class);
                 break;
+            default:
+                break;
         }
 
         return intent;
@@ -72,7 +79,9 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity{
 
     protected abstract int getIdentifier();
 
-    protected abstract Toolbar getDrawerToolbar();
+    protected Toolbar getDrawerToolbar() {
+        return mToolbar;
+    }
 
     @Override
     protected void onStart() {

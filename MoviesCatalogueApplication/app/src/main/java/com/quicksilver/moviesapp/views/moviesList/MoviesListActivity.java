@@ -16,7 +16,6 @@ import butterknife.ButterKnife;
 public class MoviesListActivity extends BaseDrawerActivity implements MoviesListContracts.Navigator {
 
     public static final int IDENTIFIER = 1;
-    private Toolbar mToolbar;
 
     @Inject
     MoviesListFragment mMoviesListFragment;
@@ -34,7 +33,7 @@ public class MoviesListActivity extends BaseDrawerActivity implements MoviesList
 
         ButterKnife.bind(this);
 
-        mToolbar = findViewById(R.id.drawer_toolbar);
+        setSupportActionBar(getDrawerToolbar());
 
         mMoviesListFragment.setNavigator(this);
         mMoviesListFragment.setPresenter(mMoviesListPresenter);
@@ -48,11 +47,6 @@ public class MoviesListActivity extends BaseDrawerActivity implements MoviesList
     @Override
     protected int getIdentifier() {
         return IDENTIFIER;
-    }
-
-    @Override
-    protected Toolbar getDrawerToolbar() {
-        return mToolbar;
     }
 
     @Override
