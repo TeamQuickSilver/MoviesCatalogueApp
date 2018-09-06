@@ -15,14 +15,14 @@ import butterknife.ButterKnife;
 
 public class MoviesListActivity extends BaseDrawerActivity implements MoviesListContracts.Navigator {
 
-    public static final long IDENTIFIER = 1;
+    public static final int IDENTIFIER = 1;
     private Toolbar mToolbar;
 
     @Inject
     MoviesListFragment mMoviesListFragment;
 
     @Inject
-    MoviesListContracts.Presenter mSuperheroesListPresenter;
+    MoviesListContracts.Presenter mMoviesListPresenter;
 
     @Inject
     MoviesListContracts.Presenter mMoviesPresenter;
@@ -34,10 +34,10 @@ public class MoviesListActivity extends BaseDrawerActivity implements MoviesList
 
         ButterKnife.bind(this);
 
-        setSupportActionBar(getToolbar());
+        mToolbar = findViewById(R.id.drawer_toolbar);
 
         mMoviesListFragment.setNavigator(this);
-        mMoviesListFragment.setPresenter(mSuperheroesListPresenter);
+        mMoviesListFragment.setPresenter(mMoviesListPresenter);
 
         getSupportFragmentManager()
                 .beginTransaction()
@@ -46,7 +46,7 @@ public class MoviesListActivity extends BaseDrawerActivity implements MoviesList
     }
 
     @Override
-    protected long getIdentifier() {
+    protected int getIdentifier() {
         return IDENTIFIER;
     }
 

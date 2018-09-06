@@ -1,5 +1,6 @@
 package com.quicksilver.moviesapp.diconfig;
 
+import com.quicksilver.moviesapp.views.movieCreate.MoviesCreateActivity;
 import com.quicksilver.moviesapp.views.movieDetails.MovieDetailsActivity;
 import com.quicksilver.moviesapp.views.moviesList.MoviesListActivity;
 
@@ -16,4 +17,8 @@ public abstract class ActivityBindingModule {
     @ActivityScoped
     @ContributesAndroidInjector(modules = MovieDetailsModule.class)
     abstract MovieDetailsActivity movieDetailsActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = MoviesCreateModule.class)
+    abstract MoviesCreateActivity moviesCreateActivity();
 }

@@ -2,19 +2,17 @@ package com.quicksilver.moviesapp.views;
 
 import android.content.Intent;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.quicksilver.moviesapp.views.movieCreate.MoviesCreateActivity;
 import com.quicksilver.moviesapp.views.moviesList.MoviesListActivity;
 
 import dagger.android.support.DaggerAppCompatActivity;
 
 public abstract class BaseDrawerActivity extends DaggerAppCompatActivity{
-    private Toolbar mToolbar;
 
     public BaseDrawerActivity() {
     }
@@ -23,6 +21,9 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity{
         PrimaryDrawerItem listMoviesItem = new PrimaryDrawerItem()
                 .withIdentifier(MoviesListActivity.IDENTIFIER)
                 .withName("Movies");
+        PrimaryDrawerItem createMoviesItem = new PrimaryDrawerItem()
+                .withIdentifier(MoviesCreateActivity.IDENTIFIER)
+                .withName("Create movie");
 
 //        PrimaryDrawerItem secondMoviesItem = new PrimaryDrawerItem()
 //                .withIdentifier("TODO")
@@ -30,42 +31,48 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity{
 //                .withName("TODO");
 
         Drawer drawer = new DrawerBuilder()
-                .withActivity(this).withToolbar(getDrawerToolbar()).addDrawerItems(
+                .withActivity(this)
+                .withToolbar(getDrawerToolbar())
+                .addDrawerItems(
                         listMoviesItem,
-                        new DividerDrawerItem()
-                ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                    @Override
-                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                        long identifier = drawerItem.getIdentifier();
+                        new DividerDrawerItem(),
+                        createMoviesItem
+                ).withOnDrawerItemClickListener((view, position, drawerItem) -> {
+                    int identifier = (int)drawerItem.getIdentifier();
 
-                        if (getIdentifier() == identifier) {
-                            return false;
-                        }
-
-                        Intent intent = getNextIntent(identifier);
-
-                        if (intent == null) {
-                            return false;
-                        }
-
-                        startActivity(intent);
-                        return true;
+                    if (getIdentifier() == identifier) {
+                        return false;
                     }
+
+                    Intent intent = getNextIntent(identifier);
+
+                    if (intent == null) {
+                        return false;
+                    }
+
+                    startActivity(intent);
+                    return true;
                 }).build();
     }
 
-    private  Intent getNextIntent(long identifier) {
-        //TODO
-        return new Intent(this, MoviesListActivity.class);
+    private Intent getNextIntent(int identifier) {
+        Intent intent = null;
+
+        switch (identifier) {
+            case MoviesListActivity.IDENTIFIER:
+                intent = new Intent(this, MoviesListActivity.class);
+                break;
+            case MoviesCreateActivity.IDENTIFIER:
+                intent = new Intent(this, MoviesCreateActivity.class);
+                break;
+        }
+
+        return intent;
     }
 
-    protected abstract long getIdentifier();
+    protected abstract int getIdentifier();
 
     protected abstract Toolbar getDrawerToolbar();
-
-    public Toolbar getToolbar() {
-        return mToolbar;
-    }
 
     @Override
     protected void onStart() {

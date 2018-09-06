@@ -9,7 +9,7 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
 @Module
-abstract class MoviesListModule {
+ abstract class MoviesListModule {
     @FragmentScoped
     @ContributesAndroidInjector
     abstract MoviesListFragment moviesListFragment();

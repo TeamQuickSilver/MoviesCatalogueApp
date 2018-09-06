@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.movieDetails.MovieDetailsActivity"></activity>
+        <activity android:name=".views.movieDetails.MovieDetailsActivity" />
+        <activity android:name=".views.movieCreate.MoviesCreateActivity"></activity>
     </application>
 
 </manifest>
