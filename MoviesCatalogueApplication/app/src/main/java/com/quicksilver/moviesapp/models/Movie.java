@@ -37,4 +37,20 @@ public class Movie implements Serializable {
     public String getImageUrl() {
         return imageUrl;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getCast() {
+        return cast;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }
