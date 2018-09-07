@@ -9,6 +9,7 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.views.movieCreate.MoviesCreateActivity;
+import com.quicksilver.moviesapp.views.movieGenres.MoviesGenresActivity;
 import com.quicksilver.moviesapp.views.moviesList.MoviesListActivity;
 
 import butterknife.BindView;
@@ -29,11 +30,9 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
         PrimaryDrawerItem createMoviesItem = new PrimaryDrawerItem()
                 .withIdentifier(MoviesCreateActivity.IDENTIFIER)
                 .withName("Create movie");
-
-//        PrimaryDrawerItem secondMoviesItem = new PrimaryDrawerItem()
-//                .withIdentifier("TODO")
-//                .withIcon(android.R.drawable.btn_plus)
-//                .withName("TODO");
+        PrimaryDrawerItem genresMoviesItem = new PrimaryDrawerItem()
+                .withIdentifier(MoviesGenresActivity.IDENTIFIER)
+                .withName("Genres movie");
 
         Drawer drawer = new DrawerBuilder()
                 .withActivity(this)
@@ -41,7 +40,8 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
                 .addDrawerItems(
                         listMoviesItem,
                         new DividerDrawerItem(),
-                        createMoviesItem
+                        createMoviesItem,
+                        genresMoviesItem
                 ).withOnDrawerItemClickListener((view, position, drawerItem) -> {
                     int identifier = (int) drawerItem.getIdentifier();
 
@@ -69,6 +69,9 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
                 break;
             case MoviesCreateActivity.IDENTIFIER:
                 intent = new Intent(this, MoviesCreateActivity.class);
+                break;
+            case MoviesGenresActivity.IDENTIFIER:
+                intent = new Intent(this, MoviesGenresActivity.class);
                 break;
             default:
                 break;

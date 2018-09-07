@@ -21,7 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".views.movieDetails.MovieDetailsActivity" />
-        <activity android:name=".views.movieCreate.MoviesCreateActivity"></activity>
+        <activity android:name=".views.movieCreate.MoviesCreateActivity" />
+        <activity
+            android:name=".views.movieGenres.MoviesGenresActivity"
+            android:label="@string/title_activity_genres"></activity>
     </application>
 
 </manifest>
