@@ -95,7 +95,6 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
         mPresenter = presenter;
     }
 
-
     @Override
     public void navigateToHome() {
         mNavigator.navigateToHome();
