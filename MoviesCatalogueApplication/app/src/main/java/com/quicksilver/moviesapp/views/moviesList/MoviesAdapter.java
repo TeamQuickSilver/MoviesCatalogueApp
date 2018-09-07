@@ -89,7 +89,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         }
 
         void bind(Movie movie) {
-            mTitleTextView.setText(movie.getName());
+            mTitleTextView.setText(movie.getTitle());
 
             Picasso.get().load(movie.getImageUrl()).into(mImageView);
 

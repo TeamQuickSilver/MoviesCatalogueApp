@@ -27,11 +27,6 @@ public class MoviesCreatePresenter implements MovieCreateContracts.Presenter {
     }
 
     @Override
-    public void selectMovie(Movie movie) {
-        mView.showCreatedMovie(movie);
-    }
-
-    @Override
     public void addMovie(Movie movie) {
         Disposable disposable = Observable.create((ObservableOnSubscribe<Movie>) emitter -> {
             mMoviesService.createMovie(movie);
@@ -40,6 +35,6 @@ public class MoviesCreatePresenter implements MovieCreateContracts.Presenter {
         })
                 .subscribeOn(mSchedulerProvider.background())
                 .observeOn(mSchedulerProvider.ui())
-                .subscribe(m -> mView.showCreatedMovie(movie),error -> mView.showError(error));
+                .subscribe(m -> mView.navigateToHome(), error -> mView.showError(error));
     }
 }

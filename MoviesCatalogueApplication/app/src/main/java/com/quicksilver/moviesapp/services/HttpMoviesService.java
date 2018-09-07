@@ -29,7 +29,7 @@ public class HttpMoviesService implements MoviesService{
     public List<Movie> getFilteredMovies(String pattern) throws IOException {
         String patternToLower = pattern.toLowerCase();
         return getAllMovies().stream()
-                .filter(movie -> movie.getName().toLowerCase().contains(patternToLower)).collect(Collectors.toList());
+                .filter(movie -> movie.getTitle().toLowerCase().contains(patternToLower)).collect(Collectors.toList());
     }
 
     @Override

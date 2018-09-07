@@ -6,7 +6,7 @@ public interface MovieCreateContracts {
     interface View {
         void setPresenter(Presenter presenter);
 
-        void showCreatedMovie(Movie movie);
+        void navigateToHome();
 
         void showLoading();
 
@@ -20,12 +20,10 @@ public interface MovieCreateContracts {
     interface Presenter {
         void subscribe(View view);
 
-        void selectMovie(Movie movie);
-
         void addMovie(Movie movie);
     }
 
     interface Navigator {
-        void navigateWith(Movie movie);
+        void navigateToHome();
     }
 }

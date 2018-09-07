@@ -1,14 +1,18 @@
 package com.quicksilver.moviesapp.views.movieCreate;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +23,8 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.OnItemSelected;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +33,7 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
 //    private static final int PICK_IMAGE = 100;
     private MovieCreateContracts.Navigator mNavigator;
     private MovieCreateContracts.Presenter mPresenter;
+    private ArrayAdapter<String> mSpinnerAdapter;
 
     @BindView(R.id.progress_bar)
     ProgressBar mProgressBar;
@@ -43,15 +50,11 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
     @BindView(R.id.et_description)
     TextView mTextViewDescription;
 
-    @BindView(R.id.et_category)
-    TextView mTextViewCategory;
-
-    @BindView(R.id.btn_wallpaper)
-    Button mButtonWallpaper;
+    @BindView(R.id.spinner_categories)
+    Spinner mSpinnerCategories;
 
     @BindView(R.id.btn_create)
     Button mButtonCreate;
-
 
     @Inject
     public MoviesCreateFragment() {
@@ -67,7 +70,16 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
 
         ButterKnife.bind(this, view);
 
-//        mButtonWallpaper.setOnClickListener(this);
+        String[] categories = {"Comedy", "Crime", "Action", "Horror"};
+        mSpinnerAdapter = new ArrayAdapter<>(
+                getContext(),
+//                R.layout.spinner_item,
+                android.R.layout.simple_spinner_dropdown_item,
+                categories);
+
+        mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        mSpinnerCategories.setAdapter(mSpinnerAdapter);
 
         return view;
     }
@@ -85,8 +97,8 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
 
 
     @Override
-    public void showCreatedMovie(Movie movie) {
-        mNavigator.navigateWith(movie);
+    public void navigateToHome() {
+        mNavigator.navigateToHome();
     }
 
     @Override
@@ -111,14 +123,19 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
         Toast.makeText(getContext(), "Error " + error.getMessage(), Toast.LENGTH_LONG).show();
     }
 
+    @OnClick(R.id.btn_create)
+    public void onClick(View view) {
+        String title = mTextViewTitle.getText().toString();
+        String cast = mTextViewCast.getText().toString();
+        String description = mTextViewDescription.getText().toString();
+        String category = mSpinnerCategories.getSelectedItem().toString();
 
-//    @OnClick
-//    @Override
-//    public void onClick(View view) {
-//        Intent gallery = new Intent(
-//                Intent.ACTION_PICK,
-//                MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-//
-//        startActivityForResult(gallery, PICK_IMAGE);
-//    }
+        Movie movie = new Movie(title, cast, description, category);
+        mPresenter.addMovie(movie);
+    }
+
+    @OnItemSelected(R.id.spinner_categories)
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("#E8f3FC"));
+    }
 }

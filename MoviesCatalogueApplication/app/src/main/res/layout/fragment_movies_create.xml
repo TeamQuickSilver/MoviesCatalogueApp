@@ -11,87 +11,93 @@
         android:layout_height="match_parent"
         android:visibility="gone" />
 
-    <RelativeLayout
-        android:id="@+id/relative_layout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/primary_dark">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Title"
-            android:textColor="@color/primary_light"
-            style="@style/BigText"/>
-
-        <EditText
-            android:id="@+id/et_title"
+        <RelativeLayout
+            android:id="@+id/relative_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_title" />
+            android:background="@color/primary_dark">
 
-        <TextView
-            android:id="@+id/tv_cast"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/et_title"
-            android:text="Cast"
-            android:textColor="@color/primary_light"
-            style="@style/BigText"/>
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/BigText"
+                android:layout_marginStart="6sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:textColor="@color/primary_light" />
+
+            <EditText
+                android:id="@+id/et_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_light"
+                android:layout_below="@id/tv_title" />
+
+            <TextView
+                android:id="@+id/tv_cast"
+                style="@style/BigText"
+                android:layout_marginStart="6sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_title"
+                android:text="Cast"
+                android:textColor="@color/primary_light" />
 
 
-        <EditText
-            android:id="@+id/et_cast"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_cast" />
+            <EditText
+                android:id="@+id/et_cast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_light"
+                android:layout_below="@id/tv_cast" />
 
-        <TextView
-            android:id="@+id/tv_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/et_cast"
-            android:text="Description"
-            android:textColor="@color/primary_light"
-            style="@style/BigText"/>
+            <TextView
+                android:id="@+id/tv_description"
+                style="@style/BigText"
+                android:layout_marginStart="6sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_cast"
+                android:text="Description"
+                android:textColor="@color/primary_light" />
 
-        <EditText
-            android:id="@+id/et_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_description" />
+            <EditText
+                android:id="@+id/et_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_light"
+                android:layout_below="@+id/tv_description" />
 
-        <TextView
-            android:id="@+id/tv_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/et_description"
-            android:text="Category"
-            android:textColor="@color/primary_light"
-            style="@style/BigText"/>
+            <TextView
+                android:id="@+id/tv_category"
+                style="@style/BigText"
+                android:layout_marginStart="6sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_description"
+                android:text="Category"
+                android:textColor="@color/primary_light" />
 
-        <EditText
-            android:id="@+id/et_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_category" />
+            <Spinner
+                android:id="@+id/spinner_categories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_category" />
 
-        <Button
-            android:id="@+id/btn_wallpaper"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/et_category"
-            android:text="Upload image" />
+            <Button
+                android:id="@+id/btn_create"
+                android:layout_width="120sp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/tv_category"
+                android:text="Create" />
 
-        <Button
-            android:id="@+id/btn_create"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/et_category"
-            android:text="Create"/>
+        </RelativeLayout>
 
-    </RelativeLayout>
+    </ScrollView>
 
 </FrameLayout>

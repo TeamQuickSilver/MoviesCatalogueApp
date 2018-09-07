@@ -2,22 +2,22 @@ package com.moviecatalogue.server.models;
 
 public class Movie {
     private int id;
-    private String name;
+    private String title;
     private String imageUrl;
     private String cast;
     private String description;
-    public String categories;
+    public String category;
 
     public Movie() {
     }
 
-    public Movie(int id, String name, String imageUrl, String cast, String description, String categories) {
+    public Movie(int id, String title, String imageUrl, String cast, String description, String category) {
         this.id = id;
-        this.name = name;
+        this.title = title;
         this.imageUrl = imageUrl;
         this.cast = cast;
         this.description = description;
-        this.categories = categories;
+        this.category = category;
     }
 
     public int getId() {
@@ -28,12 +28,12 @@ public class Movie {
         this.id = id;
     }
 
-    public String getName() {
-        return this.name;
+    public String getTitle() {
+        return this.title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getImageUrl() {

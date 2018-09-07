@@ -43,8 +43,11 @@ public class MoviesRepository implements BaseRepository<Movie> {
     }
 
     @Override
-    public Movie add(Movie object) {
-        movies.add(object);
-        return object;
+    public Movie add(Movie movie) {
+        movie.setId(movies.size());
+        movie.setImageUrl("https://cdn20.patchcdn.com/users/22949620/20180504/071619/styles/T800x600/public/processed_images/jag_cz_movie_theater_retro_shutterstock_594132752-1525432478-9343.jpg");
+
+        movies.add(movie);
+        return movie;
     }
 }

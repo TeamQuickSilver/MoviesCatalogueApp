@@ -1,10 +1,11 @@
 package com.quicksilver.moviesapp.views.movieCreate;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.quicksilver.moviesapp.R;
-import com.quicksilver.moviesapp.models.Movie;
 import com.quicksilver.moviesapp.views.BaseDrawerActivity;
+import com.quicksilver.moviesapp.views.moviesList.MoviesListActivity;
 
 import javax.inject.Inject;
 
@@ -43,7 +44,12 @@ public class MoviesCreateActivity extends BaseDrawerActivity implements MovieCre
     }
 
     @Override
-    public void navigateWith(Movie movie) {
+    public void navigateToHome() {
+        Intent intent = new Intent(
+                this,
+                MoviesListActivity.class
+        );
 
+        startActivity(intent);
     }
 }
