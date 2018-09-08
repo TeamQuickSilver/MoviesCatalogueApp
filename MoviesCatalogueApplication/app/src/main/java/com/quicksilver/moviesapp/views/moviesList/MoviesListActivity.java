@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
 
 public class MoviesListActivity extends BaseDrawerActivity implements MoviesListContracts.Navigator {
 
-    public static final int IDENTIFIER = 1;
+    public static final int IDENTIFIER = 2;
 
     @Inject
     MoviesListFragment mMoviesListFragment;

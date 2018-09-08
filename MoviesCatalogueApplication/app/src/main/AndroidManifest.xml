@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
-        <activity android:name=".views.moviesList.MoviesListActivity">
+        <activity android:name=".views.movieHome.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,6 +25,9 @@
         <activity
             android:name=".views.movieGenres.MoviesGenresActivity"
             android:label="@string/title_activity_genres" />
+        <activity
+            android:name=".views.moviesList.MoviesListActivity"
+            android:label="MoviesListActivity" />
     </application>
 
 </manifest>

@@ -3,6 +3,7 @@ package com.quicksilver.moviesapp.views;
 import android.content.Intent;
 import android.support.v7.widget.Toolbar;
 
+import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
@@ -10,6 +11,7 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.views.movieCreate.MoviesCreateActivity;
 import com.quicksilver.moviesapp.views.movieGenres.MoviesGenresActivity;
+import com.quicksilver.moviesapp.views.movieHome.HomeActivity;
 import com.quicksilver.moviesapp.views.moviesList.MoviesListActivity;
 
 import butterknife.BindView;
@@ -24,22 +26,30 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
     }
 
     public void setupDrawer() {
+        PrimaryDrawerItem homeMoviesItem = new PrimaryDrawerItem()
+                .withIdentifier(HomeActivity.IDENTIFIER)
+                .withIcon(GoogleMaterial.Icon.gmd_home)
+                .withName("Home");
         PrimaryDrawerItem listMoviesItem = new PrimaryDrawerItem()
                 .withIdentifier(MoviesListActivity.IDENTIFIER)
+                .withIcon(GoogleMaterial.Icon.gmd_local_movies)
                 .withName("Movies");
         PrimaryDrawerItem createMoviesItem = new PrimaryDrawerItem()
                 .withIdentifier(MoviesCreateActivity.IDENTIFIER)
+                .withIcon(GoogleMaterial.Icon.gmd_movie_creation)
                 .withName("Create movie");
         PrimaryDrawerItem genresMoviesItem = new PrimaryDrawerItem()
                 .withIdentifier(MoviesGenresActivity.IDENTIFIER)
+                .withIcon(GoogleMaterial.Icon.gmd_local_activity)
                 .withName("Genres movie");
 
         Drawer drawer = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(mToolbar)
                 .addDrawerItems(
-                        listMoviesItem,
+                        homeMoviesItem,
                         new DividerDrawerItem(),
+                        listMoviesItem,
                         createMoviesItem,
                         genresMoviesItem
                 ).withOnDrawerItemClickListener((view, position, drawerItem) -> {
@@ -64,6 +74,9 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
         Intent intent = null;
 
         switch (identifier) {
+            case HomeActivity.IDENTIFIER:
+                intent = new Intent(this, HomeActivity.class);
+                break;
             case MoviesListActivity.IDENTIFIER:
                 intent = new Intent(this, MoviesListActivity.class);
                 break;

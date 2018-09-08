@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.movieHome.HomeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/quicksilver"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints">
+
+        <FrameLayout
+            android:id="@+id/content_up"
+            android:layout_width="match_parent"
+            android:layout_height="391dp" />
+
+        <FrameLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="256dp"
+            android:layout_alignBottom="@+id/content_up"
+            android:layout_marginBottom="-175dp" />
+
+        <!--<ProgressBar-->
+            <!--android:id="@+id/progressBar1"-->
+            <!--style="@android:style/Widget.ProgressBar.Horizontal"-->
+            <!--android:layout_width="230dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:indeterminate="true" />-->
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
