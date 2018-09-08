@@ -50,8 +50,6 @@ public class MoviesGenresActivity extends BaseDrawerActivity implements MovieGen
 
         ButterKnife.bind(this);
 
-        mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
-
         mActionGenreFragment.setPresenter(mMovieGenrePresenter);
         mComedyGenreFragment.setPresenter(mMovieGenrePresenter);
         mCrimeGenreFragment.setPresenter(mMovieGenrePresenter);
