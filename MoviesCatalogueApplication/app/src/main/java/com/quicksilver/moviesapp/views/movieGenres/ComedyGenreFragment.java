@@ -63,13 +63,14 @@ public class ComedyGenreFragment extends Fragment implements MovieGenreContracts
     @Override
     public void onResume() {
         super.onResume();
-        mPresenter.subscribe(this);
-        mPresenter.filterMovies(TITLE);
+        mPresenter.subscribeComedy(this);
+        mPresenter.filterMovies(this, TITLE);
     }
 
     @Override
     public void setPresenter(MovieGenreContracts.Presenter presenter) {
         mPresenter = presenter;
+        mPresenter.subscribeComedy(this);
     }
 
     @Override
@@ -98,6 +99,6 @@ public class ComedyGenreFragment extends Fragment implements MovieGenreContracts
 
     @Override
     public void onClick(Movie movie) {
-        mPresenter.selectMovie(movie);
+        mPresenter.selectMovie(movie, this);
     }
 }

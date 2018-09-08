@@ -18,11 +18,19 @@ public interface MovieGenreContracts {
     }
 
     interface Presenter {
-        void subscribe(MovieGenreContracts.View view);
+        void subscribeAction(MovieGenreContracts.View view);
 
-        void filterMovies(String pattern);
+        void subscribeComedy(MovieGenreContracts.View view);
 
-        void selectMovie(Movie movie);
+        void subscribeCrime(MovieGenreContracts.View view);
+
+        void subscribeHorror(MovieGenreContracts.View view);
+
+        void filterMovies(View view, String pattern);
+
+        void selectMovie(Movie movie, View view);
+
+        void arrangeFragment(int position);
     }
 
     interface Navigator {

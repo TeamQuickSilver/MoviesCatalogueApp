@@ -15,7 +15,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MoviesGenresActivity extends BaseDrawerActivity implements MovieGenreContracts.Navigator {
+public class MoviesGenresActivity extends BaseDrawerActivity implements MovieGenreContracts.Navigator, TabLayout.OnTabSelectedListener {
     public static final int IDENTIFIER = 4;
 
     @Inject
@@ -59,8 +59,10 @@ public class MoviesGenresActivity extends BaseDrawerActivity implements MovieGen
 
         // Set up the ViewPager with the sections adapter.
         setupViewPager(mViewPager);
+
+        mTabLayout.addOnTabSelectedListener(this);
         mTabLayout.setupWithViewPager(mViewPager);
-    }
+        }
 
     private void setupViewPager(ViewPager viewPager) {
         mSectionsPageAdapter.addFragment(mActionGenreFragment, ActionGenreFragment.TITLE);
@@ -81,5 +83,22 @@ public class MoviesGenresActivity extends BaseDrawerActivity implements MovieGen
 
         intent.putExtra("MOVIE", movie);
         startActivity(intent);
+    }
+
+    @Override
+    public void onTabSelected(TabLayout.Tab tab) {
+        int position = tab.getPosition();
+
+        mMovieGenrePresenter.arrangeFragment(position);
+    }
+
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onTabReselected(TabLayout.Tab tab) {
+
     }
 }
