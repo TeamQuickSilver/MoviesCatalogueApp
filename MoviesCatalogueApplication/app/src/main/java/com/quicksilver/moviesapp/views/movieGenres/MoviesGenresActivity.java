@@ -4,12 +4,12 @@ package com.quicksilver.moviesapp.views.movieGenres;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.quicksilver.moviesapp.R;
+import com.quicksilver.moviesapp.views.BaseDrawerActivity;
 
-public class MoviesGenresActivity extends AppCompatActivity {
+public class MoviesGenresActivity extends BaseDrawerActivity {
     public static final int IDENTIFIER = 4;
 
     private static final String TAG = "MainActivity";
@@ -26,6 +26,8 @@ public class MoviesGenresActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: Starting.");
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
+
+        setSupportActionBar(getDrawerToolbar());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
@@ -44,4 +46,8 @@ public class MoviesGenresActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+    @Override
+    protected int getIdentifier() {
+        return IDENTIFIER;
+    }
 }
