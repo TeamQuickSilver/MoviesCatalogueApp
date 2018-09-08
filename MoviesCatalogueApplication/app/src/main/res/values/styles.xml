@@ -13,6 +13,10 @@
         <item name="android:textSize">28sp</item>
     </style>
 
+    <style name="DetailsText">
+        <item name="android:textSize">23sp</item>
+    </style>
+
     <style name="MediumText">
         <item name="android:textSize">17sp</item>
     </style>

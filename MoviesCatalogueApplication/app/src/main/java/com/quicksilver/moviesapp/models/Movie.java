@@ -21,15 +21,6 @@ public class Movie implements Serializable {
         this.category = category;
     }
 
-//    public Movie(int id, String title, String imageUrl, String cast, String description, String category) {
-//        this.id = id;
-//        this.title = title;
-//        this.imageUrl = imageUrl;
-//        this.cast = cast;
-//        this.description = description;
-//        this.category = category;
-//    }
-
     public String getTitle() {
         return title;
     }

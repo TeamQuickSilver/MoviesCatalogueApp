@@ -73,6 +73,7 @@ public class MovieDetailsFragment extends Fragment implements MovieDetailsContra
 
         Picasso.get()
                 .load(movie.getImageUrl())
+                .resize(380, 500)
                 .into(mImageViewWallpaper);
 
         mTextCategory.setText(movie.getCategory());
