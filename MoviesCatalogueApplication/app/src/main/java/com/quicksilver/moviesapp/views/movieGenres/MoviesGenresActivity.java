@@ -1,18 +1,35 @@
 package com.quicksilver.moviesapp.views.movieGenres;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import com.quicksilver.moviesapp.R;
+import com.quicksilver.moviesapp.models.Movie;
+import com.quicksilver.moviesapp.views.BaseDrawerActivity;
+import com.quicksilver.moviesapp.views.movieDetails.MovieDetailsActivity;
 
-public class MoviesGenresActivity extends AppCompatActivity {
+import javax.inject.Inject;
+
+public class MoviesGenresActivity extends BaseDrawerActivity implements MovieGenreContracts.Navigator {
     public static final int IDENTIFIER = 4;
 
-    private static final String TAG = "MainActivity";
+//    @Inject
+//    ActionGenreFragment mActionGenreFragment;
+//
+//    @Inject
+//    ComedyGenreFragment mComedyGenreFragment;
+//
+//    @Inject
+//    CrimeGenreFragment mCrimeGenreFragment;
+//
+//    @Inject
+//    HorrorGenreFragment mHorrorGenreFragment;
+//
+//    @Inject
+//    MovieGenreContracts.Presenter mMovieGenrePresenter;
 
     private SectionsPageAdapter mSectionsPageAdapter;
 
@@ -23,7 +40,7 @@ public class MoviesGenresActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies_genres);
-        Log.d(TAG, "onCreate: Starting.");
+
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
@@ -44,4 +61,16 @@ public class MoviesGenresActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+    @Override
+    protected int getIdentifier() {
+        return IDENTIFIER;
+    }
+
+    @Override
+    public void navigateWith(Movie movie) {
+        Intent intent = new Intent(this, MovieDetailsActivity.class);
+
+        intent.putExtra("MOVIE", movie);
+        startActivity(intent);
+    }
 }

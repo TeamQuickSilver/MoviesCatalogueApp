@@ -7,15 +7,11 @@ import java.util.List;
 
 public interface MovieGenreContracts {
     interface View {
-        void setPresenter(MoviesListContracts.Presenter presenter);
+        void setPresenter(MovieGenreContracts.Presenter presenter);
 
         void showMovies(List<Movie> movies);
 
-        void setNavigator(MoviesListContracts.Navigator navigator);
-
-        void showLoading();
-
-        void hideLoading();
+        void setNavigator(MovieGenreContracts.Navigator navigator);
 
         void showMovieDetails(Movie movie);
 
@@ -23,7 +19,7 @@ public interface MovieGenreContracts {
     }
 
     interface Presenter {
-        void subscribe(MoviesListContracts.View view);
+        void subscribe(MovieGenreContracts.View view);
 
         void loadMovies();
 
