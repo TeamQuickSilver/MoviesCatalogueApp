@@ -24,6 +24,6 @@ public abstract class ActivityBindingModule {
     abstract MoviesCreateActivity moviesCreateActivity();
 
     @ActivityScoped
-    @ContributesAndroidInjector(modules = MoviesGenresActivity.class)
+    @ContributesAndroidInjector(modules = MoviesGenreModule.class)
     abstract MoviesGenresActivity moviesGenresActivity();
 }

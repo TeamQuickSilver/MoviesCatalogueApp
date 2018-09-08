@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.models.Movie;
-import com.quicksilver.moviesapp.views.moviesList.MoviesListContracts;
 
 import java.util.List;
 
@@ -25,7 +24,8 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HorrorGenreFragment extends Fragment implements MovieGenreContracts.View, MoviesGenreAdapter.onMovieClickListener{
+public class HorrorGenreFragment extends Fragment implements MovieGenreContracts.View, MoviesGenreAdapter.onMovieClickListener {
+    public static final String TITLE = "Horror";
 
     @BindView(R.id.rv_movies)
     RecyclerView mRecyclerViewMovies;
@@ -65,7 +65,7 @@ public class HorrorGenreFragment extends Fragment implements MovieGenreContracts
     public void onResume() {
         super.onResume();
         mPresenter.subscribe(this);
-        mPresenter.loadMovies();
+        mPresenter.filterMovies(TITLE);
     }
 
     @Override

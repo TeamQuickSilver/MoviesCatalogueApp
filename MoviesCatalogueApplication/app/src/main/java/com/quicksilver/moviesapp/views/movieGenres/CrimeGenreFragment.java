@@ -25,6 +25,7 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class CrimeGenreFragment extends Fragment implements MovieGenreContracts.View, MoviesGenreAdapter.onMovieClickListener{
+    public static final String TITLE = "Crime";
 
     @BindView(R.id.rv_movies)
     RecyclerView mRecyclerViewMovies;
@@ -64,7 +65,7 @@ public class CrimeGenreFragment extends Fragment implements MovieGenreContracts.
     public void onResume() {
         super.onResume();
         mPresenter.subscribe(this);
-        mPresenter.loadMovies();
+        mPresenter.filterMovies(TITLE);
     }
 
     @Override

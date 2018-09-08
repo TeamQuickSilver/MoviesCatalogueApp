@@ -1,7 +1,6 @@
 package com.quicksilver.moviesapp.views.movieGenres;
 
 import com.quicksilver.moviesapp.models.Movie;
-import com.quicksilver.moviesapp.views.moviesList.MoviesListContracts;
 
 import java.util.List;
 
@@ -20,8 +19,6 @@ public interface MovieGenreContracts {
 
     interface Presenter {
         void subscribe(MovieGenreContracts.View view);
-
-        void loadMovies();
 
         void filterMovies(String pattern);
 
