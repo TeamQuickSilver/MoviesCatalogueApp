@@ -66,6 +66,58 @@ public class MoviesRepository implements BaseRepository<Movie> {
                         "Theron, Edward Norton, Jason Statham, Seth Green, Mos Def and Donald Sutherland. It is" +
                         " an American remake of the 1969 British film of the same name, and is about a team of thieves" +
                         " who plan to steal gold from a former associate who double-crossed them.", "Action"));
+
+        movies.add(new Movie(7, "Ocean's Eleven",
+                "https://m.media-amazon.com/images/M/MV5BYzVmYzVkMmUtOGRhMi00MTNmLThlMmUtZTljYjlkMjNkMjJkXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_.jpg",
+                "George Clooney, Brad Pitt, Julia Roberts",
+                "Danny Ocean wants to score the biggest heist in history. He combines an eleven member team, " +
+                        "including Frank Catton, Rusty Ryan and Linus Caldwell. Their target? The Bellagio, the Mirage" +
+                        " and the MGM Grand. All casinos owned by Terry Benedict. It's not going to be easy, as they plan " +
+                        "to get in secretly and out with $150 million.", "Comedy"));
+
+        movies.add(new Movie(8, "Tag",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLDFVMkh_Wf9zf8EwbUlJhGZfUxIc-F9s9o5Y1ehaNXF8va9Ot",
+                "Jeremy Renner, Ed Helms, Jake Johnson",
+                "One month every year, five highly competitive friends hit the ground running in a no-holds- barred game " +
+                        "of tag they’ve been playing since the first grade—risking their necks, their jobs and their relationships to " +
+                        "take each other down with the battle cry “You’re It!” This year, the game coincides with the wedding of their " +
+                        "only undefeated player, which should finally make him an easy target. But he knows they’re coming...and he’s ready." +
+                        " Based on a true story, “Tag” shows how far some guys will go to be the last man standing.", "Comedy"));
+
+        movies.add(new Movie(9,"Mission: Impossible - Fallout ",
+                "https://m.media-amazon.com/images/M/MV5BMTk3NDY5MTU0NV5BMl5BanBnXkFtZTgwNDI3MDE1NTM@._V1_.jpg",
+                "Tom Cruise, Henry Cavill, Ving Rhames",
+                "The best intentions often come back to haunt you. \"Mission: Impossible - Fallout\" finds Ethan Hunt (Tom Cruise)" +
+                        " and his IMF team (Alec Baldwin, Simon Pegg, Ving Rhames) along with some familiar allies (Rebecca Ferguson, Michelle Monaghan)" +
+                        " in a race against time after a mission gone wrong. Henry Cavill, Angela Bassett, and Vanessa Kirby also join the dynamic cast " +
+                        "with filmmaker Christopher McQuarrie returning to the helm.", "Action"));
+
+        movies.add(new Movie(10, "Halloween",
+                "https://upload.wikimedia.org/wikipedia/en/thumb/b/b1/Halloween_%282018%29_poster.jpg/220px-Halloween_%282018%29_poster.jpg",
+                "Judy Greer, Jamie Lee Curtis, Virginia Gardner",
+                "Jamie Lee Curtis returns to her iconic role as Laurie Strode, who comes to her final confrontation with Michael Myers, " +
+                        "the masked figure who has haunted her since she narrowly escaped his killing spree on Halloween night four decades ago. " +
+                        "Greer would play Karen Strode, the daughter of Curtis’ character.\n" +
+                        "Master of horror John Carpenter will executive produce and serve as creative consultant on this film, joining forces with " +
+                        "cinema’s current leading producer of horror, Jason Blum (\"Get Out,\" \"Split,\" \"The Purge,\" \"Paranormal Activity\")." +
+                        " Inspired by Carpenter’s classic, filmmakers David Gordon Green and Danny McBride crafted a story that carves a new path from " +
+                        "the events in the landmark 1978 film, and Green also directs.", "Horror"));
+
+        movies.add(new Movie(11, "Split",
+                "https://m.media-amazon.com/images/M/MV5BZTJiNGM2NjItNDRiYy00ZjY0LTgwNTItZDBmZGRlODQ4YThkL2ltYWdlXkEyXkFqcGdeQXVyMjY5ODI4NDk@._V1_UX182_CR0,0,182,268_AL_.jpg",
+                "James McAvoy, Anya Taylor-Joy, Haley Lu Richardson",
+                "Though Kevin (James McAvoy) has evidenced 23 personalities to his trusted psychiatrist, Dr. Fletcher (Betty Buckley), " +
+                        "there remains one still submerged who is set to materialize and dominate all the others. Compelled to abduct three teenage " +
+                        "girls led by the willful, observant Casey (Anya Taylor-Joy, The Witch), Kevin reaches a war for survival among all of those " +
+                        "contained within him—as well as everyone around him—as the walls between his compartments shatter apart.\n" +
+                        "For \"Split,\" Shyamalan and Blum reassemble their core team from \"The Visit,\" the No. 1-grossing horror film of 2015. " +
+                        "Their fellow collaborators include producer Marc Bienstock and executive producers Ashwin Rajan and Steven Schneider.", "Horror"));
+
+        movies.add(new Movie(12, "John Wick",
+                "https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_.jpg",
+                "Keanu Reeves, Michael Nyqvist, Alfie Allen",
+                "An ex-hitman comes out of retirement to track down the gangsters that took everything from him. With New York City as " +
+                        "his bullet-riddled playground, \"John Wick\" (Keanu Reeves) is a fresh and stylized take on the \"assassin genre\".", "Crime"));
     }
 
     @Override
