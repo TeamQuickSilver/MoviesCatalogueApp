@@ -24,7 +24,7 @@
         <activity android:name=".views.movieCreate.MoviesCreateActivity" />
         <activity
             android:name=".views.movieGenres.MoviesGenresActivity"
-            android:label="@string/title_activity_genres"></activity>
+            android:label="@string/title_activity_genres" />
     </application>
 
 </manifest>

@@ -13,11 +13,10 @@ import com.quicksilver.moviesapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Tab3Fragment extends Fragment {
-    private static final String TAG = "Tab3Fragment";
+public class HorrorGenreFragment extends Fragment {
 
 
-    public Tab3Fragment() {
+    public HorrorGenreFragment() {
         // Required empty public constructor
     }
 
@@ -26,9 +25,7 @@ public class Tab3Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_tab3, container, false);
-
-        return view;
+        return inflater.inflate(R.layout.fragment_horror_genre, container, false);
     }
 
 }

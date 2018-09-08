@@ -37,14 +37,11 @@ public class MoviesGenresActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Tab1Fragment(), "TAB1");
-        adapter.addFragment(new Tab2Fragment(), "TAB2");
-        adapter.addFragment(new Tab3Fragment(), "TAB3");
+        adapter.addFragment(new ActionGenreFragment(), "Action");
+        adapter.addFragment(new ComedyGenreFragment(), "Comedy");
+        adapter.addFragment(new CrimeGenreFragment(), "Crime");
+        adapter.addFragment(new HorrorGenreFragment(), "Horror");
         viewPager.setAdapter(adapter);
     }
 
-//    @Override
-//    protected int getIdentifier() {
-//        return IDENTIFIER;
-//    }
 }
