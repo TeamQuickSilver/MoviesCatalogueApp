@@ -15,5 +15,7 @@ public interface MovieDetailsContracts {
         void subscribe(View view);
 
         void loadMovieId(int id);
+
+        void selectMovie(Movie mMovie);
     }
 }

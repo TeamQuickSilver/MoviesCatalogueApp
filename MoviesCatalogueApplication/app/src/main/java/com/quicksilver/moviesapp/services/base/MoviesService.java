@@ -15,4 +15,6 @@ public interface MoviesService {
     Movie createMovie(Movie movie) throws IOException;
 
     List<Movie> getLatestMovies() throws IOException;
+
+    Movie updateMovie(int id, Movie movie) throws IOException;
 }

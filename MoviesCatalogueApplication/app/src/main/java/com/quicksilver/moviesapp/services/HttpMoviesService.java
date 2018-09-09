@@ -52,4 +52,9 @@ public class HttpMoviesService implements MoviesService{
 
         return latestMovies;
     }
+
+    @Override
+    public Movie updateMovie(int id, Movie movie) throws IOException {
+        return mMoviesRepository.update(id, movie);
+    }
 }

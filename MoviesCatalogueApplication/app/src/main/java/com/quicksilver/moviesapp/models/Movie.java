@@ -9,6 +9,7 @@ public class Movie implements Serializable {
     public String cast;
     public String description;
     public String category;
+    public float rating;
 
     public Movie() {
         // public constructor is needed for parsing from/to JSON to work
@@ -43,5 +44,13 @@ public class Movie implements Serializable {
 
     public String getDescription() {
         return description;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 }

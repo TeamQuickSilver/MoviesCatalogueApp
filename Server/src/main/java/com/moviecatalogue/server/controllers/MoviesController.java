@@ -23,7 +23,6 @@ public class MoviesController {
         service.add(movie);
     }
 
-
     @GetMapping
     public List<Movie> getMovies() {
         return service.getAll();
@@ -32,5 +31,10 @@ public class MoviesController {
     @GetMapping("/{id}")
     public Movie getMovieById(@PathVariable int id) {
         return service.getById(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public void updateMovie(@PathVariable int id, @RequestBody Movie movie) {
+        service.update(id, movie);
     }
 }

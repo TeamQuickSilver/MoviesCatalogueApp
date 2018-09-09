@@ -7,8 +7,10 @@ public class Movie {
     private String cast;
     private String description;
     public String category;
+    public float rating;
 
     public Movie() {
+
     }
 
     public Movie(int id, String title, String imageUrl, String cast, String description, String category) {
@@ -18,6 +20,7 @@ public class Movie {
         this.cast = cast;
         this.description = description;
         this.category = category;
+        this.rating = 0;
     }
 
     public int getId() {
@@ -58,5 +61,13 @@ public class Movie {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 }

@@ -31,4 +31,10 @@ public class MovieService implements BaseService<Movie> {
     public Movie add(Movie object) {
         return repository.add(object);
     }
+
+    @Override
+    public Movie update(int id, Movie object) {
+        repository.update(id, object);
+        return repository.getById(id);
+    }
 }

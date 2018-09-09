@@ -1,7 +1,6 @@
 package com.quicksilver.moviesapp.views.movieDetails;
 
 import android.os.Bundle;
-import android.widget.RatingBar;
 
 import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.models.Movie;
@@ -13,7 +12,6 @@ import butterknife.ButterKnife;
 
 public class MovieDetailsActivity extends BaseDrawerActivity {
     public static final int IDENTIFIER = 3;
-    RatingBar ratingBar;
 
     @Inject
     MovieDetailsFragment mMovieDetailsFragment;
@@ -25,8 +23,6 @@ public class MovieDetailsActivity extends BaseDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
-
-        ratingBar = findViewById(R.id.rating_bar);
 
         ButterKnife.bind(this);
 

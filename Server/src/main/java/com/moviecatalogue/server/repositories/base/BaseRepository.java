@@ -9,4 +9,6 @@ public interface BaseRepository<T> {
     T getById(int id);
 
     T add(T object);
+
+    T update(int id, T object);
 }

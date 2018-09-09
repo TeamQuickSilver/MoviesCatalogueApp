@@ -34,8 +34,23 @@ public class MovieDetailsPresenter implements MovieDetailsContracts.Presenter {
             emitter.onNext(movie);
             emitter.onComplete();
         })
-            .subscribeOn(mSchedulerProvider.background())
-            .observeOn(mSchedulerProvider.ui())
-            .subscribe(m -> mView.showMovie(m), error -> mView.showError(error));
+                .subscribeOn(mSchedulerProvider.background())
+                .observeOn(mSchedulerProvider.ui())
+                .subscribe(m -> mView.showMovie(m), error -> mView.showError(error));
+    }
+
+    @Override
+    public void selectMovie(Movie movie) {
+        Disposable disposable = Observable.create((ObservableOnSubscribe<Movie>) emitter -> {
+            int id = movie.getId() - 1;
+            mMovieService.updateMovie(id, movie);
+            Movie movieToShow = mMovieService.getDetailById(id);
+            emitter.onNext(movieToShow);
+            emitter.onComplete();
+        })
+                .subscribeOn(mSchedulerProvider.background())
+                .observeOn(mSchedulerProvider.ui())
+                .subscribe(m -> mView.showMovie(m), error -> mView.showError(error));
     }
 }
+

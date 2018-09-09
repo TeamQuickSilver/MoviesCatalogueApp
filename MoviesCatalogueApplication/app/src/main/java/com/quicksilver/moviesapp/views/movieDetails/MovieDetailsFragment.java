@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,8 +22,11 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MovieDetailsFragment extends Fragment implements MovieDetailsContracts.View {
+public class MovieDetailsFragment extends Fragment implements MovieDetailsContracts.View, RatingBar.OnRatingBarChangeListener {
     private MovieDetailsContracts.Presenter mPresenter;
+
+    @BindView(R.id.rating_bar)
+    RatingBar mRatingBar;
 
     @BindView(R.id.tv_title)
     TextView mTextViewTitle;
@@ -38,6 +42,7 @@ public class MovieDetailsFragment extends Fragment implements MovieDetailsContra
 
     @BindView(R.id.tv_category)
     TextView mTextCategory;
+    private Movie mMovie;
 
     @Inject
     public MovieDetailsFragment() {
@@ -60,6 +65,7 @@ public class MovieDetailsFragment extends Fragment implements MovieDetailsContra
     public void onResume() {
         super.onResume();
         mPresenter.subscribe(this);
+        mRatingBar.setOnRatingBarChangeListener(this);
     }
 
     @Override
@@ -69,6 +75,8 @@ public class MovieDetailsFragment extends Fragment implements MovieDetailsContra
 
     @Override
     public void showMovie(Movie movie) {
+        mMovie = movie;
+
         mTextViewTitle.setText(movie.getTitle());
 
         Picasso.get()
@@ -79,11 +87,18 @@ public class MovieDetailsFragment extends Fragment implements MovieDetailsContra
         mTextCategory.setText(movie.getCategory());
         mTextViewCast.setText(movie.getCast());
         mTextViewDescription.setText(movie.getDescription());
+        mRatingBar.setRating(movie.getRating());
     }
 
     @Override
     public void showError(Throwable error) {
         Toast.makeText(getContext(), "Error: " + error.getMessage(),
                 Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+        mMovie.setRating(rating);
+        mPresenter.selectMovie(mMovie);
     }
 }

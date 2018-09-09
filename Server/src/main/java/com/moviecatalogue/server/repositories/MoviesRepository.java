@@ -174,4 +174,13 @@ public class MoviesRepository implements BaseRepository<Movie> {
         movies.add(movie);
         return movie;
     }
+
+    @Override
+    public Movie update(int id, Movie object) {
+        movies.get(id).setRating(object.getRating());
+
+        return movies.get(id);
+    }
+
+
 }
