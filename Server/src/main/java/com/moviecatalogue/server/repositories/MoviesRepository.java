@@ -84,7 +84,7 @@ public class MoviesRepository implements BaseRepository<Movie> {
                         "only undefeated player, which should finally make him an easy target. But he knows they’re coming...and he’s ready." +
                         " Based on a true story, “Tag” shows how far some guys will go to be the last man standing.", "Comedy"));
 
-        movies.add(new Movie(9,"Mission: Impossible - Fallout ",
+        movies.add(new Movie(9,"Mission: Impossible - Fallout",
                 "https://m.media-amazon.com/images/M/MV5BMTk3NDY5MTU0NV5BMl5BanBnXkFtZTgwNDI3MDE1NTM@._V1_.jpg",
                 "Tom Cruise, Henry Cavill, Ving Rhames",
                 "The best intentions often come back to haunt you. \"Mission: Impossible - Fallout\" finds Ethan Hunt (Tom Cruise)" +
@@ -118,6 +118,42 @@ public class MoviesRepository implements BaseRepository<Movie> {
                 "Keanu Reeves, Michael Nyqvist, Alfie Allen",
                 "An ex-hitman comes out of retirement to track down the gangsters that took everything from him. With New York City as " +
                         "his bullet-riddled playground, \"John Wick\" (Keanu Reeves) is a fresh and stylized take on the \"assassin genre\".", "Crime"));
+
+        movies.add(new Movie(13,"Avengers: Infinity War",
+                "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg",
+                "Robert Downey Jr., Chris Hemsworth, Mark Ruffalo",
+                "An unprecedented cinematic journey ten years in the making and spanning the entire Marvel Cinematic Universe, Marvel Studios' " +
+                        "\"Avengers: Infinity War\" brings to the screen the ultimate, deadliest showdown of all time. The Avengers and their Super Hero " +
+                        "allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts " +
+                        "an end to the universe.", "Action"));
+
+        movies.add(new Movie(14, "Ocean's Eight",
+                "https://m.media-amazon.com/images/M/MV5BMjAyNDEyMzc4Ml5BMl5BanBnXkFtZTgwMjEzNjM0NTM@._V1_.jpg",
+                " Sandra Bullock, Cate Blanchett, Anne Hathaway",
+                "The tide has turned and it’s a whole new “Ocean’s” when eight women plan and execute a heist in New York. Oscar winner Sandra " +
+                        "Bullock stars in the title role, alongside Oscar winners Cate Blanchett and Anne Hathaway, Mindy Kaling, Sarah Paulson, Awkwafina, " +
+                        "with Rihanna and Oscar nominee Helena Bonham Carter. Oscar-nominated filmmaker Gary Ross is directing.", "Crime"));
+
+        movies.add(new Movie(15, "It",
+                "https://m.media-amazon.com/images/M/MV5BZDVkZmI0YzAtNzdjYi00ZjhhLWE1ODEtMWMzMWMzNDA0NmQ4XkEyXkFqcGdeQXVyNzYzODM3Mzg@._V1_.jpg",
+                "Bill Skarsgård, Jaeden Lieberher, Finn Wolfhard",
+                "T is long, but IT‘s long in a good way. IT lets us spend time with these characters, as we grow to care for them and worry for them. " +
+                        "Pennywise is a formidable monster, and the best scary movies make us feel fear for characters we care about. There are only a few films " +
+                        "that get Stephen King so intrinsically perfect – that rich tapestry of emotion, fear, humor, and power that has kept us reading him for more " +
+                        "than forty years. In that time, some filmmakers have hit that elusive mark, while others miss wildly. IT feels like Stephen King, that sheer" +
+                        " pleasure of cracking open one of his books for the first time, and falling into his world.", "Horror"));
+
+        movies.add(new Movie(16, "Jumanji: Welcome to the Jungle",
+                "https://is4-ssl.mzstatic.com/image/thumb/Video115/v4/f9/f0/8d/f9f08de5-cdbe-de2a-05dc-f09662a1c203/pr_source.lsr/268x0w.png",
+                "Dwayne Johnson, Karen Gillan, Kevin Hart",
+                "Genre:Action, Fantasy, Adventure\n" +
+                        "\n" +
+                        "Plot Summary:\n" +
+                        "In the brand new adventure \"Jumanji: Welcome to the Jungle,\" the tables are turned as four teenagers in detention are sucked into " +
+                        "the world of Jumanji. When they discover an old video game console with a game they’ve never heard of, they are immediately thrust into" +
+                        " the game’s jungle setting, into the bodies of their avatars, played by Dwayne Johnson, Jack Black, Kevin Hart, and Karen Gillan. " +
+                        "What they discover is that you don’t just play Jumanji – Jumanji plays you. They’ll have to go on the most dangerous adventure of their lives," +
+                        " or they’ll be stuck in the game forever…", "Comedy"));
     }
 
     @Override

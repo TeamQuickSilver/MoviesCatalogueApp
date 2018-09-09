@@ -13,4 +13,14 @@
     <string name="movie_details_description">Description: </string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home_activity">Home</string>
+
+    <string name="about_us_info">Basically, Cool Text Generator a cute copy and paste font generator online,
+        font maker, font creator, font changer, special text maker, stylish text generator,
+        weird text generator, word art generator, fancy letter generator, webfont generator, signature maker,
+        signature creator, free text symbols generator, logo animation maker, font manager…
+        This tool helps generate text symbols, cool Unicode fancy letters, fancy writing, fancy fonts, stylish
+        fonts, cool symbols, cool symbol text, emoji, fancy letters, letter fonts, funky cool text, fancy chat message,
+        fancy facebook status, fancy nick, love text, beautiful ASCII text art, text pictures, emoticons, emoji text…
+        with different serif, sans-serif font types.</string>
+
 </resources>

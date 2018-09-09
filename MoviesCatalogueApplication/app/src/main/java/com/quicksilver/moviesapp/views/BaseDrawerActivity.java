@@ -12,6 +12,7 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.quicksilver.moviesapp.R;
+import com.quicksilver.moviesapp.views.about.AboutUsActivity;
 import com.quicksilver.moviesapp.views.movieCreate.MoviesCreateActivity;
 import com.quicksilver.moviesapp.views.movieGenres.MoviesGenresActivity;
 import com.quicksilver.moviesapp.views.movieHome.HomeActivity;
@@ -45,6 +46,10 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
                 .withIdentifier(MoviesGenresActivity.IDENTIFIER)
                 .withIcon(GoogleMaterial.Icon.gmd_local_activity)
                 .withName("Genres movie");
+        PrimaryDrawerItem aboutUsItem = new PrimaryDrawerItem()
+                .withIdentifier(AboutUsActivity.IDENTIFIER)
+                .withIcon(GoogleMaterial.Icon.gmd_info)
+                .withName("About Us");
 
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
@@ -61,7 +66,8 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
                         new DividerDrawerItem(),
                         listMoviesItem,
                         createMoviesItem,
-                        genresMoviesItem
+                        genresMoviesItem,
+                        aboutUsItem
                 ).withOnDrawerItemClickListener((view, position, drawerItem) -> {
                     int identifier = (int) drawerItem.getIdentifier();
 
@@ -95,6 +101,9 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
                 break;
             case MoviesGenresActivity.IDENTIFIER:
                 intent = new Intent(this, MoviesGenresActivity.class);
+                break;
+            case AboutUsActivity.IDENTIFIER:
+                intent = new Intent(this, AboutUsActivity.class);
                 break;
             default:
                 break;
