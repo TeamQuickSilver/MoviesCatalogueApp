@@ -25,22 +25,27 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
 
     @BindView(R.id.drawer_toolbar)
     Toolbar mToolbar;
+    private int mIdentifier;
 
     public BaseDrawerActivity() {
+
     }
 
     public void setupDrawer() {
         PrimaryDrawerItem homeMoviesItem = new PrimaryDrawerItem()
                 .withIdentifier(HomeActivity.IDENTIFIER)
                 .withIcon(GoogleMaterial.Icon.gmd_home)
+                .withSelectable(true)
                 .withName("Home");
         PrimaryDrawerItem listMoviesItem = new PrimaryDrawerItem()
                 .withIdentifier(MoviesListActivity.IDENTIFIER)
                 .withIcon(GoogleMaterial.Icon.gmd_local_movies)
+                .withSelectable(true)
                 .withName("Movies");
         PrimaryDrawerItem createMoviesItem = new PrimaryDrawerItem()
                 .withIdentifier(MoviesCreateActivity.IDENTIFIER)
                 .withIcon(GoogleMaterial.Icon.gmd_movie_creation)
+                .withSelectable(true)
                 .withName("Create movie");
         PrimaryDrawerItem genresMoviesItem = new PrimaryDrawerItem()
                 .withIdentifier(MoviesGenresActivity.IDENTIFIER)
@@ -49,6 +54,7 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
         PrimaryDrawerItem aboutUsItem = new PrimaryDrawerItem()
                 .withIdentifier(AboutUsActivity.IDENTIFIER)
                 .withIcon(GoogleMaterial.Icon.gmd_info)
+                .withSelectable(true)
                 .withName("About Us");
 
         AccountHeader headerResult = new AccountHeaderBuilder()
@@ -69,13 +75,13 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
                         genresMoviesItem,
                         aboutUsItem
                 ).withOnDrawerItemClickListener((view, position, drawerItem) -> {
-                    int identifier = (int) drawerItem.getIdentifier();
+                    mIdentifier = (int) drawerItem.getIdentifier();
 
-                    if (getIdentifier() == identifier) {
+                    if (getIdentifier() == mIdentifier) {
                         return false;
                     }
 
-                    Intent intent = getNextIntent(identifier);
+                    Intent intent = getNextIntent(mIdentifier);
 
                     if (intent == null) {
                         return false;
@@ -83,7 +89,8 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
 
                     startActivity(intent);
                     return true;
-                }).build();
+                }).withSelectedItem(getIdentifier())
+                .build();
     }
 
     private Intent getNextIntent(int identifier) {
