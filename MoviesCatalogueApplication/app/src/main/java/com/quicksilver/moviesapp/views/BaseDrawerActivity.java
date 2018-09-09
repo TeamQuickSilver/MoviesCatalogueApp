@@ -1,9 +1,12 @@
 package com.quicksilver.moviesapp.views;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.Toolbar;
 
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
+import com.mikepenz.materialdrawer.AccountHeader;
+import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
@@ -43,9 +46,16 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
                 .withIcon(GoogleMaterial.Icon.gmd_local_activity)
                 .withName("Genres movie");
 
+        AccountHeader headerResult = new AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(R.drawable.header)
+                .build();
+
         Drawer drawer = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(mToolbar)
+                .withSliderBackgroundColor(Color.GRAY)
+                .withAccountHeader(headerResult)
                 .addDrawerItems(
                         homeMoviesItem,
                         new DividerDrawerItem(),
