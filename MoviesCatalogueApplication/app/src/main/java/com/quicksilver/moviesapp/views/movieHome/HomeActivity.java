@@ -10,6 +10,8 @@ import com.quicksilver.moviesapp.views.movieDetails.MovieDetailsActivity;
 
 import javax.inject.Inject;
 
+import butterknife.ButterKnife;
+
 public class HomeActivity extends BaseDrawerActivity implements HomeContracts.Navigator {
     public static final int IDENTIFIER = 1;
 
@@ -23,6 +25,8 @@ public class HomeActivity extends BaseDrawerActivity implements HomeContracts.Na
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        ButterKnife.bind(this);
 
         setSupportActionBar(getDrawerToolbar());
 

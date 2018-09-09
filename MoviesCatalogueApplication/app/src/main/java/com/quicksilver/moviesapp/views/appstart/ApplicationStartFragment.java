@@ -39,6 +39,7 @@ public class ApplicationStartFragment extends Fragment implements ApplicationSta
 
         ButterKnife.bind(this, view);
 
+        mProgressBar.getIndeterminateDrawable().setColorFilter(0xFF3568A3, android.graphics.PorterDuff.Mode.MULTIPLY);
         return view;
     }
 

@@ -28,7 +28,8 @@
         <activity
             android:name=".views.moviesList.MoviesListActivity"
             android:label="MoviesListActivity" />
-        <activity android:name=".views.movieHome.HomeActivity" />
+        <activity android:name=".views.movieHome.HomeActivity"
+            android:label="@string/title_home_activity"/>
     </application>
 
 </manifest>
