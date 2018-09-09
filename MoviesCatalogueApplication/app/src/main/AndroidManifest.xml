@@ -13,24 +13,35 @@
         android:roundIcon="@mipmap/avengers_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
-        <activity android:name=".views.appstart.ApplicationStartActivity">
+
+        <activity android:name=".views.appstart.ApplicationStartActivity" android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.movieDetails.MovieDetailsActivity" />
-        <activity android:name=".views.movieCreate.MoviesCreateActivity" />
+        <activity
+            android:name=".views.movieDetails.MovieDetailsActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity
+            android:name=".views.movieCreate.MoviesCreateActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name=".views.movieGenres.MoviesGenresActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/title_activity_genres" />
         <activity
             android:name=".views.moviesList.MoviesListActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="MoviesListActivity" />
-        <activity android:name=".views.movieHome.HomeActivity"
+        <activity
+            android:name=".views.movieHome.HomeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/title_home_activity"/>
-        <activity android:name=".views.about.AboutUsActivity"
+        <activity
+            android:name=".views.about.AboutUsActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="About Us"/>
     </application>
 

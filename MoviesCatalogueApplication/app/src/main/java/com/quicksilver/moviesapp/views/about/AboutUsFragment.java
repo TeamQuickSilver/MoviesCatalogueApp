@@ -3,7 +3,6 @@ package com.quicksilver.moviesapp.views.about;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,10 +56,7 @@ public class AboutUsFragment extends Fragment implements AboutUsContracts.View{
     @Override
     public void setView() {
         mTextViewAbout.setText(R.string.about_us_info);
-        mTextViewAbout.setMovementMethod(new ScrollingMovementMethod());
     }
-
-
 
     @Override
     public void setPresenter(AboutUsContracts.Presenter presenter) {
