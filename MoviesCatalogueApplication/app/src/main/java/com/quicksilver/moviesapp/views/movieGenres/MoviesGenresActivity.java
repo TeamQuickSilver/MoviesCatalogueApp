@@ -52,10 +52,9 @@ public class MoviesGenresActivity extends BaseDrawerActivity implements MovieGen
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
-        mActionGenreFragment.setPresenter(mMovieGenrePresenter);
-        mComedyGenreFragment.setPresenter(mMovieGenrePresenter);
-        mCrimeGenreFragment.setPresenter(mMovieGenrePresenter);
-        mHorrorGenreFragment.setPresenter(mMovieGenrePresenter);
+        setNavigator();
+
+        setPresenter();
 
         setSupportActionBar(getDrawerToolbar());
 
@@ -65,6 +64,20 @@ public class MoviesGenresActivity extends BaseDrawerActivity implements MovieGen
         mTabLayout.addOnTabSelectedListener(this);
         mTabLayout.setupWithViewPager(mViewPager);
         }
+
+    private void setNavigator() {
+        mActionGenreFragment.setNavigator(this);
+        mComedyGenreFragment.setNavigator(this);
+        mCrimeGenreFragment.setNavigator(this);
+        mHorrorGenreFragment.setNavigator(this);
+    }
+
+    private void setPresenter() {
+        mActionGenreFragment.setPresenter(mMovieGenrePresenter);
+        mComedyGenreFragment.setPresenter(mMovieGenrePresenter);
+        mCrimeGenreFragment.setPresenter(mMovieGenrePresenter);
+        mHorrorGenreFragment.setPresenter(mMovieGenrePresenter);
+    }
 
     private void setupViewPager(ViewPager viewPager) {
         mSectionsPageAdapter.addFragment(mActionGenreFragment, ActionGenreFragment.TITLE);
