@@ -33,7 +33,7 @@ public class MoviesGenresActivity extends BaseDrawerActivity implements MovieGen
     @Inject
     MovieGenreContracts.Presenter mMovieGenrePresenter;
 
-    @Inject
+//    @Inject
     SectionsPageAdapter mSectionsPageAdapter;
 
     @BindView(R.id.container)
@@ -49,6 +49,8 @@ public class MoviesGenresActivity extends BaseDrawerActivity implements MovieGen
         setContentView(R.layout.activity_movies_genres);
 
         ButterKnife.bind(this);
+
+        mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
         mActionGenreFragment.setPresenter(mMovieGenrePresenter);
         mComedyGenreFragment.setPresenter(mMovieGenrePresenter);
