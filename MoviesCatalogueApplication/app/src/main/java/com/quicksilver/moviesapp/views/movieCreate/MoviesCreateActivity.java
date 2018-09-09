@@ -12,7 +12,7 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 
 public class MoviesCreateActivity extends BaseDrawerActivity implements MovieCreateContracts.Navigator{
-    public static final int IDENTIFIER = 3;
+    public static final int IDENTIFIER = 5;
 
     @Inject
     MoviesCreateFragment mMoviesCreateFragment;

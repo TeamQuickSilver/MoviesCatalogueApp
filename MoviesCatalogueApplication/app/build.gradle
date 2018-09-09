@@ -43,7 +43,6 @@ dependencies {
     //Google Material Icons
     implementation 'com.mikepenz:google-material-typeface:3.0.1.2.original@aar'
 
-
     //ButterKnife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'

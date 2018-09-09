@@ -12,7 +12,7 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 
 public class MovieDetailsActivity extends BaseDrawerActivity {
-    public static final int IDENTIFIER = 5;
+    public static final int IDENTIFIER = 3;
     RatingBar ratingBar;
 
     @Inject

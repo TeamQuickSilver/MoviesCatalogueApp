@@ -13,4 +13,6 @@ public interface MoviesService {
     List<Movie> getFilteredMovies(String pattern) throws IOException;
 
     Movie createMovie(Movie movie) throws IOException;
+
+    List<Movie> getLatestMovies() throws IOException;
 }

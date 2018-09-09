@@ -1,32 +1,55 @@
 package com.quicksilver.moviesapp.views.movieHome;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 
 import com.quicksilver.moviesapp.R;
+import com.quicksilver.moviesapp.models.Movie;
 import com.quicksilver.moviesapp.views.BaseDrawerActivity;
+import com.quicksilver.moviesapp.views.movieDetails.MovieDetailsActivity;
 
-public class HomeActivity extends Activity {
+import javax.inject.Inject;
 
+public class HomeActivity extends BaseDrawerActivity implements HomeContracts.Navigator {
     public static final int IDENTIFIER = 1;
 
-    private HomeFragment mHomeFragment;
+    @Inject
+    HomeFragment mHomeView;
+
+    @Inject
+    HomeContracts.Presenter mHomePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        mHomeFragment = HomeFragment.newInstance();
+        setSupportActionBar(getDrawerToolbar());
+
+        mHomeView.setNavigator(this);
+        mHomeView.setPresenter(mHomePresenter);
+
+        getIntent();
 
         getFragmentManager()
                 .beginTransaction()
-                .replace(R.id.content, mHomeFragment)
+                .replace(R.id.content, mHomeView)
                 .commit();
     }
 
-//    @Override
-//    protected int getIdentifier() {
-//        return IDENTIFIER;
-//    }
+    @Override
+    protected int getIdentifier() {
+        return IDENTIFIER;
+    }
+
+    @Override
+    public void navigateWith(Movie movie) {
+        Intent intent = new Intent(
+                this,
+                MovieDetailsActivity.class
+        );
+
+        intent.putExtra("MOVIE", movie);
+        startActivity(intent);
+    }
 }

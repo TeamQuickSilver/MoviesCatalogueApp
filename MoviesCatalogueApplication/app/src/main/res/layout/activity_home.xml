@@ -9,31 +9,19 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/quicksilver"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints">
+        android:background="@color/colorPrimaryDark">
 
-        <FrameLayout
-            android:id="@+id/content_up"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/drawer_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="391dp" />
+            android:layout_height="40sp"
+            android:background="@color/primary"/>
 
         <FrameLayout
             android:id="@+id/content"
             android:layout_width="match_parent"
-            android:layout_height="256dp"
-            android:layout_alignBottom="@+id/content_up"
-            android:layout_marginBottom="-175dp" />
-
-        <!--<ProgressBar-->
-            <!--android:id="@+id/progressBar1"-->
-            <!--style="@android:style/Widget.ProgressBar.Horizontal"-->
-            <!--android:layout_width="230dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:indeterminate="true" />-->
+            android:layout_height="match_parent"
+            android:layout_below="@id/drawer_toolbar"/>
 
     </RelativeLayout>
 
