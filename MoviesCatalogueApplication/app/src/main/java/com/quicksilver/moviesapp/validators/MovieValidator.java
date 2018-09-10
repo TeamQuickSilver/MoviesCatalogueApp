@@ -14,8 +14,8 @@ public class MovieValidator implements Validator<Movie> {
     public boolean isValid(Movie object) throws IllegalArgumentException {
         return object != null &&
                 isTitleValid(object) &&
-                isDescriptionValid(object) &&
-                isCastValid(object);
+                isCastValid(object) &&
+                isDescriptionValid(object);
     }
     private boolean isDescriptionValid(Movie object) {
         boolean isMinLengthValid = object.getDescription().length() >= Constants.MOVIE_DESCRIPTION_MIN_LENGTH;
