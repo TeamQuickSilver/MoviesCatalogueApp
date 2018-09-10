@@ -169,7 +169,7 @@ public class MoviesRepository implements BaseRepository<Movie> {
     @Override
     public Movie add(Movie movie) {
         movie.setId(movies.size() + 1);
-        movie.setImageUrl("https://cdn20.patchcdn.com/users/22949620/20180504/071619/styles/T800x600/public/processed_images/jag_cz_movie_theater_retro_shutterstock_594132752-1525432478-9343.jpg");
+        movie.setImageUrl("http://hdphonewallpapers.com/content/hZJzObX6qrqF7lyC9xWpUuvHoc44Jgbwx1XMyQf66YAj9kMT8Xeh9XAvmBKugdvJ.jpg");
 
         movies.add(movie);
         return movie;
