@@ -119,7 +119,7 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
 
     @Override
     public void showError(Throwable error) {
-        Toast.makeText(getContext(), "Error " + error.getMessage(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
     }
 
     @OnClick(R.id.btn_create)

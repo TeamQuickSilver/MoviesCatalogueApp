@@ -39,9 +39,9 @@ public class HttpMoviesService implements MoviesService{
     }
 
     @Override
-    public Movie createMovie(Movie movie) throws IOException {
+    public Movie createMovie(Movie movie) throws IOException, IllegalArgumentException {
         if (!mMovieValidator.isValid(movie)) {
-            throw new IllegalArgumentException("Invalid movies");
+            throw new IllegalArgumentException();
         }
 
         return mMoviesRepository.add(movie);

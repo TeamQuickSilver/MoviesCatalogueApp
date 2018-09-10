@@ -5,8 +5,13 @@ import com.quicksilver.moviesapp.models.Movie;
 import com.quicksilver.moviesapp.validators.base.Validator;
 
 public class MovieValidator implements Validator<Movie> {
+
+    public MovieValidator() {
+
+    }
+
     @Override
-    public boolean isValid(Movie object) {
+    public boolean isValid(Movie object) throws IllegalArgumentException {
         return object != null &&
                 isTitleValid(object) &&
                 isDescriptionValid(object) &&
