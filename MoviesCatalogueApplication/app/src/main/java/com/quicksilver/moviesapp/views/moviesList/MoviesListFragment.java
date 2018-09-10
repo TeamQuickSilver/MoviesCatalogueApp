@@ -28,9 +28,6 @@ public class MoviesListFragment extends Fragment implements MoviesListContracts.
     @BindView(R.id.rv_movies)
     RecyclerView mRecyclerViewMovies;
 
-    @BindView(R.id.progress_bar)
-    ProgressBar mProgressBar;
-
     private MoviesListContracts.Navigator mNavigator;
 
     @Inject
@@ -90,13 +87,6 @@ public class MoviesListFragment extends Fragment implements MoviesListContracts.
 
     @Override
     public void showLoading() {
-        mProgressBar.setVisibility(View.VISIBLE);
-        mRecyclerViewMovies.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void hideLoading() {
-        mProgressBar.setVisibility(View.GONE);
         mRecyclerViewMovies.setVisibility(View.VISIBLE);
     }
 

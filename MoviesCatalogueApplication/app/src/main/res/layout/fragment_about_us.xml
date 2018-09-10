@@ -31,7 +31,9 @@
                 android:textAlignment="center"
                 android:textColor="@color/primary_light"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"/>
 
         </RelativeLayout>
 

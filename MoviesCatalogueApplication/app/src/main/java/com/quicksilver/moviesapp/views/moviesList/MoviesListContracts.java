@@ -14,8 +14,6 @@ public interface MoviesListContracts {
 
         void showLoading();
 
-        void hideLoading();
-
         void showMovieDetails(Movie movie);
 
         void showError(Throwable error);
