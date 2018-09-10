@@ -6,5 +6,7 @@ public class Constants {
     public static final int MOVIE_DESCRIPTION_MAX_LENGTH = 100;
     public static final int MOVIE_TITLE_MIN_LENGTH = 2;
     public static final int MOVIE_TITLE_MAX_LENGTH = 20;
+    public static final int MOVIE_CAST_MIN_LENGTH = 10;
+    public static final int MOVIE_CAST_MAX_LENGTH = 50;
 
 }

@@ -3,6 +3,7 @@ package com.quicksilver.moviesapp.services;
 import com.quicksilver.moviesapp.models.Movie;
 import com.quicksilver.moviesapp.repositories.base.Repository;
 import com.quicksilver.moviesapp.services.base.MoviesService;
+import com.quicksilver.moviesapp.validators.base.Validator;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,10 +12,12 @@ import java.util.stream.Collectors;
 
 public class HttpMoviesService implements MoviesService{
     private static final int TOP_MOVIES = 4;
+    private final Validator<Movie> mMovieValidator;
     private Repository<Movie> mMoviesRepository;
 
-    public HttpMoviesService(Repository<Movie> moviesRepository) {
+    public HttpMoviesService(Repository<Movie> moviesRepository, Validator<Movie> movieValidator) {
         mMoviesRepository = moviesRepository;
+        mMovieValidator = movieValidator;
     }
 
     @Override
@@ -37,6 +40,10 @@ public class HttpMoviesService implements MoviesService{
 
     @Override
     public Movie createMovie(Movie movie) throws IOException {
+        if (!mMovieValidator.isValid(movie)) {
+            throw new IllegalArgumentException("Invalid movies");
+        }
+
         return mMoviesRepository.add(movie);
     }
 
