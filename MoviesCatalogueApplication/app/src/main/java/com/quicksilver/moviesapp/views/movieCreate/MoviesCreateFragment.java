@@ -1,8 +1,10 @@
 package com.quicksilver.moviesapp.views.movieCreate;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,11 +28,13 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 
+import static android.support.v4.provider.FontsContractCompat.FontRequestCallback.RESULT_OK;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class MoviesCreateFragment extends Fragment implements MovieCreateContracts.View {
-//    private static final int PICK_IMAGE = 100;
+    private static final int PICK_IMAGE = 100;
     private MovieCreateContracts.Navigator mNavigator;
     private MovieCreateContracts.Presenter mPresenter;
     private ArrayAdapter<String> mSpinnerAdapter;
@@ -55,6 +59,8 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
 
     @BindView(R.id.btn_create)
     Button mButtonCreate;
+
+    private byte[] mImageBytes;
 
     @Inject
     public MoviesCreateFragment() {
@@ -122,6 +128,16 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
         Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_LONG).show();
     }
 
+    @OnClick(R.id.btn_upload_image)
+    public void OnClick(View view) {
+        Intent intentToGallery = new Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.INTERNAL_CONTENT_URI
+        );
+
+        startActivityForResult(intentToGallery, PICK_IMAGE);
+    }
+
     @OnClick(R.id.btn_create)
     public void onClick(View view) {
         String title = mTextViewTitle.getText().toString();
@@ -129,12 +145,21 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
         String description = mTextViewDescription.getText().toString();
         String category = mSpinnerCategories.getSelectedItem().toString();
 
-        Movie movie = new Movie(title, cast, description, category);
+        Movie movie = new Movie(title, cast, description, category, mImageBytes);
         mPresenter.addMovie(movie);
     }
 
     @OnItemSelected(R.id.spinner_categories)
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("#E8f3FC"));
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null) {
+            mImageBytes = data.getByteArrayExtra("IMAGE_BYTES");
+        }
     }
 }

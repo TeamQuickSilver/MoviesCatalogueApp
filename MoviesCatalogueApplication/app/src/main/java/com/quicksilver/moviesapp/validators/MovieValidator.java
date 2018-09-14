@@ -13,9 +13,8 @@ public class MovieValidator implements Validator<Movie> {
     @Override
     public boolean isValid(Movie object) throws IllegalArgumentException {
         return object != null &&
-                isTitleValid(object) &&
-                isCastValid(object) &&
-                isDescriptionValid(object);
+                isTitleValid(object) && isCastValid(object) &&
+                isDescriptionValid(object) && isImageValid(object);
     }
     private boolean isDescriptionValid(Movie object) {
         boolean isMinLengthValid = object.getDescription().length() >= Constants.MOVIE_DESCRIPTION_MIN_LENGTH;
@@ -45,6 +44,14 @@ public class MovieValidator implements Validator<Movie> {
 
         if (!isMinLengthValid || !isMaxLengthValid) {
             throw new IllegalArgumentException("Invalid cast");
+        }
+
+        return true;
+    }
+
+    private boolean isImageValid(Movie object) {
+        if (object.getImageBytes() == null) {
+            throw new IllegalArgumentException("Image missed");
         }
 
         return true;

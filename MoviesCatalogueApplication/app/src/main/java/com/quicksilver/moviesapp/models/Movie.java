@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Movie implements Serializable {
     public int id;
     public String title;
-    public String imageUrl;
+    public byte[] imageBytes;
     public String cast;
     public String description;
     public String category;
@@ -15,19 +15,20 @@ public class Movie implements Serializable {
         // public constructor is needed for parsing from/to JSON to work
     }
 
-    public Movie(String title, String cast, String description, String category) {
+    public Movie(String title, String cast, String description, String category, byte[] imageBytes) {
         this.title = title;
         this.cast = cast;
         this.description = description;
         this.category = category;
+        this.imageBytes = imageBytes;
+    }
+
+    public byte[] getImageBytes() {
+        return imageBytes;
     }
 
     public String getTitle() {
         return title;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
     }
 
     public int getId() {
