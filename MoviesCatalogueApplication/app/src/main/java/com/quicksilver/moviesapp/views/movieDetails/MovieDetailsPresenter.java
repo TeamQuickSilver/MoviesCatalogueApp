@@ -1,6 +1,9 @@
 package com.quicksilver.moviesapp.views.movieDetails;
 
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 import com.quicksilver.moviesapp.async.base.SchedulerProvider;
 import com.quicksilver.moviesapp.models.Movie;
 import com.quicksilver.moviesapp.services.base.MoviesService;
@@ -30,7 +33,7 @@ public class MovieDetailsPresenter implements MovieDetailsContracts.Presenter {
     @Override
     public void loadMovieId(int id) {
         Disposable disposable = Observable.create((ObservableOnSubscribe<Movie>) emitter -> {
-            Movie movie = mMovieService.getDetailById(id);
+            Movie movie = mMovieService.getDetailById(id + 1);
             emitter.onNext(movie);
             emitter.onComplete();
         })
@@ -51,6 +54,11 @@ public class MovieDetailsPresenter implements MovieDetailsContracts.Presenter {
                 .subscribeOn(mSchedulerProvider.background())
                 .observeOn(mSchedulerProvider.ui())
                 .subscribe(m -> mView.showMovie(m), error -> mView.showError(error));
+    }
+
+    @Override
+    public Bitmap convertByteArrayToBitmap(byte[] imageBytes) {
+        return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
     }
 }
 

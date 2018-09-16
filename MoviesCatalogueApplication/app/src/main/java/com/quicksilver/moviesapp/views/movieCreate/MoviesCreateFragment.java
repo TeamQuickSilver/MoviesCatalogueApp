@@ -3,6 +3,7 @@ package com.quicksilver.moviesapp.views.movieCreate;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
@@ -21,6 +22,9 @@ import android.widget.Toast;
 import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.models.Movie;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -28,13 +32,12 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 
-import static android.support.v4.provider.FontsContractCompat.FontRequestCallback.RESULT_OK;
-
 /**
  * A simple {@link Fragment} subclass.
  */
 public class MoviesCreateFragment extends Fragment implements MovieCreateContracts.View {
     private static final int PICK_IMAGE = 100;
+    private static final int RESULT_OK = -1;
     private MovieCreateContracts.Navigator mNavigator;
     private MovieCreateContracts.Presenter mPresenter;
     private ArrayAdapter<String> mSpinnerAdapter;
@@ -159,7 +162,15 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null) {
-            mImageBytes = data.getByteArrayExtra("IMAGE_BYTES");
+            Uri uri = data.getData();
+
+            try {
+                InputStream inputStream = getActivity().getContentResolver().openInputStream(uri);
+
+                mImageBytes = mPresenter.convertUriIntoByteArray(uri, inputStream);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

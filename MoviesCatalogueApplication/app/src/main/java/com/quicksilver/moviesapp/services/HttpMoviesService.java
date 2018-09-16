@@ -53,7 +53,7 @@ public class HttpMoviesService implements MoviesService{
         List<Movie> latestMovies = new ArrayList<>();
 
         int endIndex = allMovies.size() - TOP_MOVIES;
-        for (int i = allMovies.size() - 1; i >= endIndex; i--) {
+        for (int i = allMovies.size() - 1; i >= Math.max(endIndex, 0); i--) {
             latestMovies.add(allMovies.get(i));
         }
 

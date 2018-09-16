@@ -1,5 +1,7 @@
 package com.quicksilver.moviesapp.views.moviesList;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,7 +12,6 @@ import android.widget.TextView;
 
 import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.models.Movie;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +92,9 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         void bind(Movie movie) {
             mTitleTextView.setText(movie.getTitle());
 
-            Picasso.get().load(movie.getImageUrl()).into(mImageView);
+            Bitmap bitmapImage = BitmapFactory.
+                    decodeByteArray(movie.getImageBytes(), 0, movie.getImageBytes().length);
+            mImageView.setImageBitmap(bitmapImage);
 
             mMovie = movie;
         }

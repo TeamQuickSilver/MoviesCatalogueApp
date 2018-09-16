@@ -1,6 +1,11 @@
 package com.quicksilver.moviesapp.views.movieCreate;
 
+import android.net.Uri;
+
 import com.quicksilver.moviesapp.models.Movie;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public interface MovieCreateContracts {
     interface View {
@@ -21,6 +26,8 @@ public interface MovieCreateContracts {
         void subscribe(View view);
 
         void addMovie(Movie movie);
+
+        byte[] convertUriIntoByteArray(Uri uri, InputStream inputStream) throws IOException;
     }
 
     interface Navigator {

@@ -1,5 +1,6 @@
 package com.quicksilver.moviesapp.views.movieDetails;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,7 +13,6 @@ import android.widget.Toast;
 
 import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.models.Movie;
-import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
 
@@ -79,10 +79,8 @@ public class MovieDetailsFragment extends Fragment implements MovieDetailsContra
 
         mTextViewTitle.setText(movie.getTitle());
 
-        Picasso.get()
-                .load(movie.getImageUrl())
-                .resize(380, 500)
-                .into(mImageViewWallpaper);
+        Bitmap bitmapImage = mPresenter.convertByteArrayToBitmap(movie.getImageBytes());
+        mImageViewWallpaper.setImageBitmap(bitmapImage);
 
         mTextCategory.setText(movie.getCategory());
         mTextViewCast.setText(movie.getCast());

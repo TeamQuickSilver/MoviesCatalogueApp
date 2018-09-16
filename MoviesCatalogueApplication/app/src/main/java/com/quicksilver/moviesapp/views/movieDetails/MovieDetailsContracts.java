@@ -1,5 +1,7 @@
 package com.quicksilver.moviesapp.views.movieDetails;
 
+import android.graphics.Bitmap;
+
 import com.quicksilver.moviesapp.models.Movie;
 
 public interface MovieDetailsContracts {
@@ -17,5 +19,7 @@ public interface MovieDetailsContracts {
         void loadMovieId(int id);
 
         void selectMovie(Movie mMovie);
+
+        Bitmap convertByteArrayToBitmap(byte[] imageBytes);
     }
 }

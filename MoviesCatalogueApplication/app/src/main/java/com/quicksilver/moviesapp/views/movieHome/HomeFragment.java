@@ -54,7 +54,6 @@ public class HomeFragment extends Fragment implements HomeContracts.View, HomeAd
         mMoviesViewLayoutManager = new GridLayoutManager(getContext(), 2);
         mRecyclerViewMovies.setLayoutManager(mMoviesViewLayoutManager);
 
-
         return view;
     }
 

@@ -3,10 +3,12 @@ package com.movies.restapi.controllers;
 import com.movies.restapi.entities.Movie;
 import com.movies.restapi.services.movies.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@PreAuthorize("isAnonymous()")
 @RequestMapping("/movies")
 public class MovieController {
 
@@ -28,12 +30,12 @@ public class MovieController {
     }
 
     @PostMapping
-    public Movie addMovie(Movie movie) {
+    public Movie addMovie(@RequestBody Movie movie) {
         return movieService.add(movie);
     }
 
-    @PutMapping
-    public Movie updateMovie(int id, Movie movie) {
+    @PutMapping("/{id}")
+    public Movie updateMovie(@PathVariable int id, @RequestBody Movie movie) {
         return movieService.update(id, movie);
     }
 }

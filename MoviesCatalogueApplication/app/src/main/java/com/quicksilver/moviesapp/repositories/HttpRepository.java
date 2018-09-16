@@ -35,7 +35,7 @@ public class HttpRepository<T> implements Repository<T> {
 
     @Override
     public T add(T item) throws IOException {
-        String url = mServerUrl + "/new";
+        String url = mServerUrl;
         String requestBody = mJsonParser.toJson(item);
         String responseBody = mHttpRequester.post(url, requestBody);
 
@@ -44,7 +44,7 @@ public class HttpRepository<T> implements Repository<T> {
 
     @Override
     public T update(int id, T object) throws IOException {
-        String url = mServerUrl + "/update/" + id;
+        String url = mServerUrl + "/" + id;
         String requestBody = mJsonParser.toJson(object);
         String responseBody = mHttpRequester.put(url, requestBody);
 

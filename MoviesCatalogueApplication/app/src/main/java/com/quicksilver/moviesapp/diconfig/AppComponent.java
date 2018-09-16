@@ -21,7 +21,6 @@ import dagger.android.support.AndroidSupportInjectionModule;
         ParsersModule.class,
         ServicesModule.class,
         RepositoriesModule.class,
-        FragmentManagerModule.class,
         ValidatorsModule.class,
         ViewModule.class
 })
