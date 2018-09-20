@@ -50,7 +50,9 @@ public class MovieValidator implements Validator<Movie> {
     }
 
     private boolean isImageValid(Movie object) {
-        if (object.getImageBytes() == null) {
+        byte[] imageBytes = object.getImageBytes();
+
+        if (imageBytes == null) {
             throw new IllegalArgumentException("Image missed");
         }
 

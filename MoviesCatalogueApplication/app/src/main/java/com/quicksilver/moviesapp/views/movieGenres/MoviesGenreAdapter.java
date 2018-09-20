@@ -92,8 +92,10 @@ public class MoviesGenreAdapter extends RecyclerView.Adapter<MoviesGenreAdapter.
         void bind(Movie movie) {
             mTitleTextView.setText(movie.getTitle());
 
+            byte[] imageBytes = movie.getImageBytes();
+
             Bitmap bitmapImage = BitmapFactory.
-                    decodeByteArray(movie.getImageBytes(), 0, movie.getImageBytes().length);
+                    decodeByteArray(imageBytes, 0, imageBytes.length);
             mImageView.setImageBitmap(bitmapImage);
 
             mMovie = movie;

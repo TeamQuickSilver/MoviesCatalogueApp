@@ -28,6 +28,8 @@ public interface MovieCreateContracts {
         void addMovie(Movie movie);
 
         byte[] convertUriIntoByteArray(Uri uri, InputStream inputStream) throws IOException;
+
+//        String convertByteArrayToString(byte[] mImageBytes);
     }
 
     interface Navigator {

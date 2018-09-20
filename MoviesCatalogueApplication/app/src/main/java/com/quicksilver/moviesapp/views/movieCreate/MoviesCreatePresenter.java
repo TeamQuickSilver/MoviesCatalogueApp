@@ -1,6 +1,7 @@
 package com.quicksilver.moviesapp.views.movieCreate;
 
 import android.net.Uri;
+import android.util.Base64;
 
 import com.quicksilver.moviesapp.async.base.SchedulerProvider;
 import com.quicksilver.moviesapp.models.Movie;
@@ -58,4 +59,10 @@ public class MoviesCreatePresenter implements MovieCreateContracts.Presenter {
 
         return byteBuffer.toByteArray();
     }
+
+//    @Override
+//    public String convertByteArrayToString(byte[] imageBytes) {
+//        String string = Base64.encodeToString(imageBytes, 2);
+//        return Base64.encodeToString(imageBytes, Base64.NO_WRAP);
+//    }
 }

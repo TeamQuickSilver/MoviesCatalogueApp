@@ -1,9 +1,7 @@
 package com.movies.restapi.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
 public class Movie {
@@ -12,8 +10,10 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
+    @Column(columnDefinition = "LONGBLOB")
     private byte[] imageBytes;
     private String cast;
+    @Column(columnDefinition = "VARCHAR(1000)")
     private String description;
     private String category;
     private float rating;

@@ -79,7 +79,9 @@ public class MovieDetailsFragment extends Fragment implements MovieDetailsContra
 
         mTextViewTitle.setText(movie.getTitle());
 
-        Bitmap bitmapImage = mPresenter.convertByteArrayToBitmap(movie.getImageBytes());
+        byte[] imageBytes = movie.getImageBytes();
+
+        Bitmap bitmapImage = mPresenter.convertByteArrayToBitmap(imageBytes);
         mImageViewWallpaper.setImageBitmap(bitmapImage);
 
         mTextCategory.setText(movie.getCategory());
