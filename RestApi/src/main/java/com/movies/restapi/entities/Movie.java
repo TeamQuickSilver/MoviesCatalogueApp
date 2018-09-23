@@ -1,9 +1,9 @@
 package com.movies.restapi.entities;
 
-
 import javax.persistence.*;
 
 @Entity
+@Table(name = "movie")
 public class Movie {
 
     @Id
@@ -16,20 +16,24 @@ public class Movie {
     @Column(columnDefinition = "VARCHAR(1000)")
     private String description;
     private String category;
-    private float rating;
+//        @OneToOne(mappedBy = "movie", cascade = CascadeType.ALL,
+//            fetch = FetchType.LAZY, optional = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rating_id")
+    private MovieRating movieRating;
 
     public Movie() {
 
     }
 
-    public Movie(int id, String title, String imageUrl, String cast, String description, String category, byte[] imageBytes) {
+    public Movie(int id, String title, String cast, String description, String category, byte[] imageBytes, MovieRating movieRating) {
         this.id = id;
         this.title = title;
         this.imageBytes = imageBytes;
         this.cast = cast;
         this.description = description;
         this.category = category;
-        this.rating = 0;
+        this.movieRating = movieRating;
     }
 
     public int getId() {
@@ -80,11 +84,11 @@ public class Movie {
         this.category = category;
     }
 
-    public float getRating() {
-        return rating;
+    public MovieRating getMovieRating() {
+        return movieRating;
     }
 
-    public void setRating(float rating) {
-        this.rating = rating;
+    public void setMovieRating(MovieRating movieRating) {
+        this.movieRating = movieRating;
     }
 }

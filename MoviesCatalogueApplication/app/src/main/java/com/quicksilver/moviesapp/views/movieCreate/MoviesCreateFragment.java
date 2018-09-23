@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.models.Movie;
+import com.quicksilver.moviesapp.models.MovieRating;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -148,7 +149,7 @@ public class MoviesCreateFragment extends Fragment implements MovieCreateContrac
         String description = mTextViewDescription.getText().toString();
         String category = mSpinnerCategories.getSelectedItem().toString();
 
-        Movie movie = new Movie(title, cast, description, category, mImageBytes);
+        Movie movie = new Movie(title, cast, description, category, mImageBytes, new MovieRating(0.0f, 0));
         mPresenter.addMovie(movie);
     }
 

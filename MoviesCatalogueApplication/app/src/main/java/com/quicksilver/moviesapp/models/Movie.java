@@ -9,18 +9,19 @@ public class Movie implements Serializable {
     public String cast;
     public String description;
     public String category;
-    public float rating;
+    public MovieRating movieRating;
 
     public Movie() {
         // public constructor is needed for parsing from/to JSON to work
     }
 
-    public Movie(String title, String cast, String description, String category, byte[] imageBytes) {
+    public Movie(String title, String cast, String description, String category, byte[] imageBytes, MovieRating movieRating) {
         this.title = title;
         this.cast = cast;
         this.description = description;
         this.category = category;
         this.imageBytes = imageBytes;
+        this.movieRating = movieRating;
     }
 
     public byte[] getImageBytes() {
@@ -47,11 +48,7 @@ public class Movie implements Serializable {
         return description;
     }
 
-    public float getRating() {
-        return rating;
-    }
-
-    public void setRating(float rating) {
-        this.rating = rating;
+    public MovieRating getMovieRating() {
+        return movieRating;
     }
 }

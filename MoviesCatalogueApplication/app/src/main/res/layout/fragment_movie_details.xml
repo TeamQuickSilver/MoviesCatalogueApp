@@ -21,13 +21,21 @@
             android:numStars="5" />
 
         <TextView
+            android:id="@+id/tv_rating_votes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rating_bar"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/primary_light" />
+
+        <TextView
             android:id="@+id/tv_title"
             style="@style/BigText"
             android:textStyle="bold"
             android:textColor="@color/primary_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/rating_bar"
+            android:layout_below="@id/tv_rating_votes"
             android:layout_centerHorizontal="true" />
 
         <ImageView

@@ -28,6 +28,9 @@ public class MovieDetailsFragment extends Fragment implements MovieDetailsContra
     @BindView(R.id.rating_bar)
     RatingBar mRatingBar;
 
+    @BindView(R.id.tv_rating_votes)
+    TextView mTextRatingVotes;
+
     @BindView(R.id.tv_title)
     TextView mTextViewTitle;
 
@@ -57,6 +60,7 @@ public class MovieDetailsFragment extends Fragment implements MovieDetailsContra
         View view = inflater.inflate(R.layout.fragment_movie_details, container, false);
 
         ButterKnife.bind(this, view);
+        mRatingBar.setOnRatingBarChangeListener(this);
 
         return view;
     }
@@ -65,7 +69,6 @@ public class MovieDetailsFragment extends Fragment implements MovieDetailsContra
     public void onResume() {
         super.onResume();
         mPresenter.subscribe(this);
-        mRatingBar.setOnRatingBarChangeListener(this);
     }
 
     @Override
@@ -87,7 +90,9 @@ public class MovieDetailsFragment extends Fragment implements MovieDetailsContra
         mTextCategory.setText(movie.getCategory());
         mTextViewCast.setText(movie.getCast());
         mTextViewDescription.setText(movie.getDescription());
-        mRatingBar.setRating(movie.getRating());
+        mRatingBar.setRating(movie.getMovieRating().getRating());
+        String ratingVotes = getString(R.string.tv_rating_votes, movie.getMovieRating().getVotes());
+        mTextRatingVotes.setText(ratingVotes);
     }
 
     @Override
@@ -98,7 +103,11 @@ public class MovieDetailsFragment extends Fragment implements MovieDetailsContra
 
     @Override
     public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-        mMovie.setRating(rating);
-        mPresenter.selectMovie(mMovie);
+        if (!fromUser) {
+            return;
+        }
+
+        mPresenter.selectMovie(mMovie, ratingBar.getRating());
+        Toast.makeText(getContext(), "Votes successful!", Toast.LENGTH_SHORT).show();
     }
 }

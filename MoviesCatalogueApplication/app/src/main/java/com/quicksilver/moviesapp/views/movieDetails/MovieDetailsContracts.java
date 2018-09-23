@@ -18,8 +18,10 @@ public interface MovieDetailsContracts {
 
         void loadMovieId(int id);
 
-        void selectMovie(Movie mMovie);
+        void selectMovie(Movie mMovie, float rating);
 
         Bitmap convertByteArrayToBitmap(byte[] imageBytes);
+
+        float calculateRating(float rating, int votes, float currentVoteRating);
     }
 }

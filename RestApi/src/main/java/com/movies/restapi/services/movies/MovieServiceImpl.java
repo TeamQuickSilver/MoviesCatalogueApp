@@ -29,13 +29,21 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Movie add(Movie movie) {
-        return movieRepository.save(movie);
+        movieRepository.save(movie);
+        movieRepository.save(movie.getMovieRating());
+        return movieRepository.getById(movie.getId());
     }
 
     @Override
     public Movie update(int id, Movie movie) {
-        movieRepository.getById(id).setId(movie.getId());
+        movieRepository.getById(id)
+                .getMovieRating()
+                .setRating(movie.getMovieRating().getRating());
+        movieRepository.getById(id)
+                .getMovieRating()
+                .setVotes(movie.getMovieRating().getVotes());
 
+        movieRepository.save(movieRepository.getById(id));
         return movieRepository.getById(id);
     }
 }

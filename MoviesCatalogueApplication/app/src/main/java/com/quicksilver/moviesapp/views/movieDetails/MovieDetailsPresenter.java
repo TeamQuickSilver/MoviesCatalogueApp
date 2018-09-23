@@ -43,12 +43,18 @@ public class MovieDetailsPresenter implements MovieDetailsContracts.Presenter {
     }
 
     @Override
-    public void selectMovie(Movie movie) {
+    public void selectMovie(Movie movie, float rating) {
         Disposable disposable = Observable.create((ObservableOnSubscribe<Movie>) emitter -> {
-            int id = movie.getId() - 1;
+            float nextRating = calculateRating
+                    (movie.getMovieRating().getRating(), movie.getMovieRating().getVotes(), rating);
+
+            movie.getMovieRating().setRating(nextRating);
+            movie.getMovieRating().setVotes(movie.getMovieRating().getVotes() + 1);
+
+            int id = movie.getId();
             mMovieService.updateMovie(id, movie);
-            Movie movieToShow = mMovieService.getDetailById(id);
-            emitter.onNext(movieToShow);
+
+            emitter.onNext(movie);
             emitter.onComplete();
         })
                 .subscribeOn(mSchedulerProvider.background())
@@ -59,6 +65,14 @@ public class MovieDetailsPresenter implements MovieDetailsContracts.Presenter {
     @Override
     public Bitmap convertByteArrayToBitmap(byte[] imageBytes) {
         return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+    }
+
+    @Override
+    public float calculateRating(float rating, int votes, float currentVoteRating) {
+        float totalPreviousRate = rating * votes;
+
+        float nextRating = (totalPreviousRate + currentVoteRating) / (votes + 1);
+        return nextRating;
     }
 }
 

@@ -96,7 +96,9 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
             Bitmap bitmapImage = BitmapFactory.
                     decodeByteArray(imageBytes, 0, imageBytes.length);
-            mImageView.setImageBitmap(bitmapImage);
+
+            Bitmap resizedImage = Bitmap.createScaledBitmap(bitmapImage, 100, 150, false);
+            mImageView.setImageBitmap(resizedImage);
 
             mMovie = movie;
         }

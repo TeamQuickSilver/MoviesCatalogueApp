@@ -1,6 +1,7 @@
 package com.movies.restapi.repositories;
 
 import com.movies.restapi.entities.Movie;
+import com.movies.restapi.entities.MovieRating;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +17,5 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
     @SuppressWarnings("unchecked")
     Movie save(Movie movie);
 
+    MovieRating save(MovieRating movieRating);
 }
