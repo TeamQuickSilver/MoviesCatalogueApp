@@ -11,12 +11,14 @@ import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.quicksilver.moviesapp.R;
 import com.quicksilver.moviesapp.views.about.AboutUsActivity;
 import com.quicksilver.moviesapp.views.movieCreate.MoviesCreateActivity;
 import com.quicksilver.moviesapp.views.movieGenres.MoviesGenresActivity;
 import com.quicksilver.moviesapp.views.movieHome.HomeActivity;
 import com.quicksilver.moviesapp.views.moviesList.MoviesListActivity;
+import com.quicksilver.moviesapp.views.users.login.LoginActivity;
 
 import butterknife.BindView;
 import dagger.android.support.DaggerAppCompatActivity;
@@ -26,6 +28,8 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
     @BindView(R.id.drawer_toolbar)
     Toolbar mToolbar;
     private int mIdentifier;
+    private String mUsername;
+    private AccountHeader accountHeader;
 
     public BaseDrawerActivity() {
 
@@ -56,11 +60,13 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
                 .withIcon(GoogleMaterial.Icon.gmd_info)
                 .withSelectable(true)
                 .withName("About Us");
+        PrimaryDrawerItem userItem = new PrimaryDrawerItem()
+                .withIdentifier(LoginActivity.IDENTIFIER)
+                .withIcon(GoogleMaterial.Icon.gmd_verified_user)
+                .withSelectable(true)
+                .withName("User");
 
-        AccountHeader headerResult = new AccountHeaderBuilder()
-                .withActivity(this)
-                .withHeaderBackground(R.drawable.header)
-                .build();
+        AccountHeader headerResult = getAccountHeader();
 
         Drawer drawer = new DrawerBuilder()
                 .withActivity(this)
@@ -73,7 +79,8 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
                         listMoviesItem,
                         createMoviesItem,
                         genresMoviesItem,
-                        aboutUsItem
+                        aboutUsItem,
+                        userItem
                 ).withOnDrawerItemClickListener((view, position, drawerItem) -> {
                     mIdentifier = (int) drawerItem.getIdentifier();
 
@@ -112,6 +119,9 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
             case AboutUsActivity.IDENTIFIER:
                 intent = new Intent(this, AboutUsActivity.class);
                 break;
+            case LoginActivity.IDENTIFIER:
+                intent = new Intent(this, LoginActivity.class);
+                break;
             default:
                 break;
         }
@@ -129,5 +139,31 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
     protected void onStart() {
         super.onStart();
         setupDrawer();
+    }
+
+    protected void setUsername(String username) {
+        mUsername = username;
+    }
+
+    private AccountHeader getAccountHeader() {
+        AccountHeader header = null;
+
+//        if (mUsername == null) {
+//             header = new AccountHeaderBuilder()
+//                    .withActivity(this)
+//                    .withHeaderBackground(R.drawable.header)
+//                    .build();
+//        } else {
+            header = new AccountHeaderBuilder()
+                    .withActivity(this)
+                    .withHeaderBackground(R.drawable.header)
+                    .addProfiles(
+                            new ProfileDrawerItem().withName(mUsername).withIcon(R.drawable.user)
+                    )
+                    .withOnAccountHeaderListener((view, profile, current) -> false)
+                    .build();
+//        }
+
+        return header;
     }
 }

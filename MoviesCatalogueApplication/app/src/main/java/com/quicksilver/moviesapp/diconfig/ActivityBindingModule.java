@@ -7,6 +7,8 @@ import com.quicksilver.moviesapp.views.movieDetails.MovieDetailsActivity;
 import com.quicksilver.moviesapp.views.movieGenres.MoviesGenresActivity;
 import com.quicksilver.moviesapp.views.movieHome.HomeActivity;
 import com.quicksilver.moviesapp.views.moviesList.MoviesListActivity;
+import com.quicksilver.moviesapp.views.users.login.LoginActivity;
+import com.quicksilver.moviesapp.views.users.register.RegisterActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -41,4 +43,12 @@ public abstract class ActivityBindingModule {
     @ActivityScoped
     @ContributesAndroidInjector(modules = AboutModule.class)
     abstract AboutUsActivity aboutTheApp();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = LoginModule.class)
+    abstract LoginActivity userActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = RegisterModule.class)
+    abstract RegisterActivity registerActivity();
 }

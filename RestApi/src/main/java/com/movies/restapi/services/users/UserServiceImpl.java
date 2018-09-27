@@ -4,9 +4,8 @@ import com.movies.restapi.entities.User;
 import com.movies.restapi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -14,25 +13,15 @@ import java.util.HashSet;
 
 @Service
 @Transactional
-public class UserServiceImpl implements UserService, UserDetailsService {
+public class UserServiceImpl implements UsersService {
 
     private final UserRepository userRepository;
-    private final BCryptPasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
-    }
-
-    @Override
-    public User register(String username, String password) {
-        User user = new User();
-
-        user.setUsername(username);
-        user.setPassword(this.passwordEncoder.encode(password));
-
-        return this.userRepository.save(user);
     }
 
     @Override
@@ -46,5 +35,16 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         );
 
         return userDetails;
+    }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return userRepository.findFirstByUsername(username);
+    }
+
+    @Override
+    public void create(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
     }
 }

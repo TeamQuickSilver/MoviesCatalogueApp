@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class HttpMoviesService implements MoviesService{
+public class HttpMoviesService implements MoviesService {
     private static final int TOP_MOVIES = 4;
     private final Validator<Movie> mMovieValidator;
     private Repository<Movie> mMoviesRepository;

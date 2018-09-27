@@ -10,24 +10,24 @@ import java.util.List;
 public class HttpRepository<T> implements Repository<T> {
     private HttpRequester mHttpRequester;
     private JsonParser<T> mJsonParser;
-    private String mServerUrl;
+    private String mMoviesUrl;
 
     public HttpRepository(HttpRequester httpRequester, JsonParser<T> jsonParser, String serverUrl) {
         this.mHttpRequester = httpRequester;
         this.mJsonParser = jsonParser;
-        this.mServerUrl = serverUrl;
+        this.mMoviesUrl = serverUrl + "/movies";
     }
 
     @Override
     public List<T> getAll() throws IOException {
-        String json = mHttpRequester.get(mServerUrl);
+        String json = mHttpRequester.get(mMoviesUrl);
 
         return mJsonParser.fromJsonArray(json);
     }
 
     @Override
     public T getById(int id) throws IOException {
-        String url = mServerUrl + "/" + id;
+        String url = mMoviesUrl + "/" + id;
         String json = mHttpRequester.get(url);
 
         return mJsonParser.fromJson(json);
@@ -35,7 +35,7 @@ public class HttpRepository<T> implements Repository<T> {
 
     @Override
     public T add(T item) throws IOException {
-        String url = mServerUrl;
+        String url = mMoviesUrl;
         String requestBody = mJsonParser.toJson(item);
         String responseBody = mHttpRequester.post(url, requestBody);
 
@@ -44,10 +44,12 @@ public class HttpRepository<T> implements Repository<T> {
 
     @Override
     public T update(int id, T object) throws IOException {
-        String url = mServerUrl + "/" + id;
+        String url = mMoviesUrl + "/" + id;
         String requestBody = mJsonParser.toJson(object);
         String responseBody = mHttpRequester.put(url, requestBody);
 
         return mJsonParser.fromJson(responseBody);
     }
 }
+
+
